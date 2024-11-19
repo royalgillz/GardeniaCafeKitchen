@@ -1,19 +1,17 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* font-family: Georgia,Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --light-green: #ddf9c1;
+  --light-yellow: #f8dda4;
+  --orange: #f9a03f;
+  --dark-orange: #d45113;
+  --brown: #813405;
+  scroll-behavior: smooth;
+  /* background-image: linear-gradient( var(--topgreen) , var(--wheat) , var(--darkgreen)); */
+  /* line-height: 20px; */
 }
 
-a {
+/* a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
@@ -65,4 +63,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
