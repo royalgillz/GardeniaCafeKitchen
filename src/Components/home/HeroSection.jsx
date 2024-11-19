@@ -5,7 +5,7 @@ const HeroSection = ({ tagline, image }) => {
         <div className="hero-section" style={{ backgroundImage: `url(${image})` }}>
             <div className="hero-overlay">
                 <h1 className="hero-tagline">{tagline}</h1>
-                <a href="/contact" className="visit-us-button">Visit Us</a>
+                <a href="/contact-us" className="visit-us-button">Visit Us</a>
             </div>
         </div>
     );

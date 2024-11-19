@@ -9,7 +9,7 @@ const HomePage = () => {
     return (
         <div className="home-page">
             <HeroSection
-                tagline="Welcome to Gardenia CafeKitchen – Where Every Bite Tells a Story"
+                tagline="Welcome to Gardenia CafeKitchen - Where Every Bite Tells a Story"
                 image="/images/hero.jpg" // Replace with actual image path
             />
             <Highlights

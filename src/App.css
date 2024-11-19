@@ -41,8 +41,9 @@
   color: #888;
 } */
 
+/* ----------------------------------------------------------------------------------------------------------------------------- */
 /* HomePage Styles */
-
+/* ----------------------------------------------------------------------------------------------------------------------------- */
 /* Hero Section */
 .hero-section {
   background-size: cover;
@@ -97,7 +98,9 @@
   color: var(--dark-orange);
 }
 
+/* ----------------------------------------------------------------------------------------------------------------------------- */
 /* Footer Styles */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
 .footer {
   background-color: var(--brown);
   color: var(--light-green);
@@ -189,8 +192,157 @@
   color: var(--light-yellow);
 }
 
-/* Contact Us Page */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/* Menu Page */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+.menu-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
 
+/* Filter Bar */
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 118px;
+}
+
+.filter-bar input {
+  background-color: var(--brown);
+  width: 100%;
+  padding: 10px;
+  /* margin-bottom: 20px; */
+  border: 1px solid var(--light-orange);
+  border-radius: 4px;
+  color: var(--light-green);
+}
+
+/* Highlighted Photo */
+.highlighted-photo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.highlighted-photo img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+/* Category Navigation */
+.category-navigation {
+  position: sticky;
+  top: 0px;
+  margin-bottom: 20px;
+  background-color: var(--light-yellow);
+  padding: 2px 20px;
+  border-radius: 10px;
+}
+
+.category-navigation ul {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  /* Use grid layout */
+  grid-template-columns: repeat(6, 1fr);
+  /* 3 equal-width columns */
+  gap: 10px;
+  /* Add spacing between items */
+}
+
+.category-navigation li {
+  margin: 5px 0;
+  text-align: left;
+  /* Align text to the left (optional) */
+}
+
+.category-navigation a {
+  text-decoration: none;
+  color: var(--dark-brown);
+  display: block;
+  /* Ensure the clickable area spans the entire column */
+  padding: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  /* Add hover effect (optional) */
+}
+
+.category-navigation a:hover {
+  background-color: var(--light-orange);
+  /* Change to highlight color */
+}
+
+
+/* Category Section */
+.category-section {
+  margin: 20px 0;
+}
+
+.category-section h2 {
+  background-color: var(--light-green);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Menu Items */
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid var(--light-yellow);
+}
+
+.menu-item.gluten-free {
+  background-color: var(--light-yellow);
+}
+
+.menu-item h3 {
+  margin: 0;
+  color: var(--dark-brown);
+}
+
+.menu-item p {
+  margin: 5px 0;
+  color: var(--brown);
+}
+
+.menu-item span {
+  font-weight: bold;
+  color: var(--dark-orange);
+}
+
+/* Sub-items styling */
+.sub-items {
+  margin-top: 10px;
+  padding-left: 20px;
+  list-style-type: disc;
+  color: var(--dark-brown);
+}
+
+.sub-items .sub-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.sub-items .sub-item span {
+  font-size: 0.9rem;
+}
+
+.sub-items .sub-item .price {
+  font-weight: bold;
+  color: var(--dark-orange);
+}
+
+/* .menu-categories {
+  background-color: var(--orange);
+} */
+
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/* Contact Us Page */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
 /* Call to Action */
 .call-to-action {
   text-align: center;
@@ -198,6 +350,12 @@
   background-color: var(--light-yellow);
   color: var(--dark-brown);
   font-size: 1.5rem;
+}
+
+.contact-info-section {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 /* Contact Info */
@@ -215,6 +373,8 @@
 .google-map iframe {
   border: none;
   border-radius: 8px;
+  min-width: 700px;
+  margin: 20px;
 }
 
 /* Contact Form */

@@ -6,9 +6,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Footer from './Footer'
 //Home
 import HomePage from './home/HomePage'
+//Menu
+import MenuPage from './menu/MenuPage'
 
 
 import ScrollToTop from './ScrollToTop';
+//Contact Us
 import ContactUsPage from './contactus/ContactUs';
 
 
@@ -21,6 +24,8 @@ const AppRoutes = () => {
             <Routes>
                 {/* Home */}
                 <Route path="/" element={<HomePage />} />
+                {/* Menu */}
+                <Route path="/menu" element={<MenuPage />} />
                 {/* Contact Us */}
                 <Route path="/contact-us" element={<ContactUsPage />} />
             </Routes>
