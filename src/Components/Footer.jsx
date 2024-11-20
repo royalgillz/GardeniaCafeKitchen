@@ -50,10 +50,10 @@ const Footer = () => {
                 <div className="footer-section">
                     <h3 className="footer-subheading">Follow Us</h3>
                     <div className="footer-socials">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="footer-social-link">
+                        <a href="https://www.facebook.com/profile.php?id=100094037439165" target="_blank" rel="noopener noreferrer" className="footer-social-link">
                             <FaFacebook />
                         </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer-social-link">
+                        <a target="_blank" rel="noopener noreferrer" className="footer-social-link">
                             <FaInstagram />
                         </a>
                     </div>
@@ -63,6 +63,7 @@ const Footer = () => {
             {/* Footer Bottom */}
             <div className="footer-bottom">
                 <p className="footer-bottom-text">© 2024 Gardenia CafeKitchen. All Rights Reserved.</p>
+                <p className='designed-by'>Designed by <a href="https://www.linkedin.com/in/sehaj-gill">Sehaj Gill</a></p>
             </div>
         </footer>
     );

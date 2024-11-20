@@ -15,7 +15,7 @@ const ContactUsPage = () => {
                 <ContactInfo
                     address="Shop 12/1244 Marmion Ave, Currambine WA 6028, Australia"
                     phone="+61 8 9407 8749"
-                    email="gardeniacafe@myyahoo.com"
+                    email="Gardeniacafe@myyahoo.com"
                     hours="Open Daily: 11:30 AM - 2:00 PM"
                 />
                 <GoogleMap
@@ -25,9 +25,9 @@ const ContactUsPage = () => {
             <ContactForm />
             <SocialMediaLinks
                 links={{
-                    facebook: "https://facebook.com/gardeniacafekitchen",
-                    instagram: "https://instagram.com/gardeniacafekitchen",
-                    twitter: "https://twitter.com/gardeniacafe"
+                    facebook: "https://www.facebook.com/profile.php?id=100094037439165",
+                    // instagram: "https://instagram.com/gardeniacafekitchen",
+                    // twitter: "https://twitter.com/gardeniacafe"
                 }}
             />
         </div>

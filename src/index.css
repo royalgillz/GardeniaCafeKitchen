@@ -1,5 +1,17 @@
+/* :root { */
+/* font-family: Georgia,Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+/* font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --light-green: #ddf9c1;
+  --light-yellow: #f8dda4;
+  --orange: #f9a03f;
+  --dark-orange: #d45113;
+  --brown: #813405;
+  scroll-behavior: smooth; */
+/* background-image: linear-gradient( var(--topgreen) , var(--wheat) , var(--darkgreen)); */
+/* line-height: 20px; */
+/* } */
+
 :root {
-  /* font-family: Georgia,Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --light-green: #ddf9c1;
   --light-yellow: #f8dda4;
@@ -7,9 +19,38 @@
   --dark-orange: #d45113;
   --brown: #813405;
   scroll-behavior: smooth;
-  /* background-image: linear-gradient( var(--topgreen) , var(--wheat) , var(--darkgreen)); */
-  /* line-height: 20px; */
 }
+
+body {
+  font-family: var(--font-family);
+  color: var(--brown);
+  /* background-color: var(--light-yellow); */
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--dark-orange);
+}
+
+a {
+  text-decoration: none;
+  color: var(--orange);
+}
+
+a:hover {
+  color: var(--dark-orange);
+}
+
+section {
+  padding: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+}
+
 
 /* a {
   font-weight: 500;

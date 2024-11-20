@@ -11,6 +11,8 @@ import MenuPage from './menu/MenuPage'
 
 
 import ScrollToTop from './ScrollToTop';
+//About Us
+import AboutUsPage from './about/AboutUsPage';
 //Contact Us
 import ContactUsPage from './contactus/ContactUs';
 
@@ -24,6 +26,8 @@ const AppRoutes = () => {
             <Routes>
                 {/* Home */}
                 <Route path="/" element={<HomePage />} />
+                {/* About Us */}
+                <Route path="/about" element={<AboutUsPage />} />
                 {/* Menu */}
                 <Route path="/menu" element={<MenuPage />} />
                 {/* Contact Us */}

@@ -2,7 +2,7 @@ import React from 'react';
 import HeroSection from './HeroSection';
 import Highlights from './Highlights';
 import Carousel from './Carousel';
-import Testimonials from './Testimonials';
+// import Testimonials from './Testimonials';
 import OpeningHours from './OpeningHours';
 
 const HomePage = () => {
