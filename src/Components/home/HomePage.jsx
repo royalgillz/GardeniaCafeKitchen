@@ -4,13 +4,17 @@ import Highlights from './Highlights';
 import Carousel from './Carousel';
 // import Testimonials from './Testimonials';
 import OpeningHours from './OpeningHours';
+import bigbreakfastimage from '../../assets/the-big-breakfast.jpg';
+import eggbenedictimage from '../../assets/egg-benedict.jpg';
+import bruschettaimage from '../../assets/bruschetta.jpg';
+import herosectionimage1 from '../../assets/cafe highlights photograph.png';
 
 const HomePage = () => {
     return (
         <div className="home-page">
             <HeroSection
                 tagline="Welcome to Gardenia CafeKitchen - Where Every Bite Tells a Story"
-                image="/images/hero.jpg" // Replace with actual image path
+                image={herosectionimage1} // Replace with actual image path
             />
             <Highlights
                 features={[
@@ -23,9 +27,9 @@ const HomePage = () => {
             />
             <Carousel
                 dishes={[
-                    { name: 'The Big Breakfast', description: 'A hearty mix of all your breakfast favorites.', image: '/images/big-breakfast.jpg' },
-                    { name: 'Eggs Benedict', description: 'Perfectly poached eggs on toasted ciabatta.', image: '/images/eggs-benedict.jpg' },
-                    { name: 'Steak Sandwich', description: 'Juicy steak with caramelized onions.', image: '/images/steak-sandwich.jpg' },
+                    { name: 'The Big Breakfast', description: 'A hearty mix of all your breakfast favorites.', image: bigbreakfastimage },
+                    { name: 'Eggs Benedict', description: 'Perfectly poached eggs on toasted ciabatta.', image: eggbenedictimage },
+                    { name: 'Bruschetta', description: 'Crispy toasted bread topped with a flavorful blend of fresh tomatoes, garlic, basil, and a drizzle of olive oil.', image: bruschettaimage },
                 ]}
             />
             {/* <Testimonials

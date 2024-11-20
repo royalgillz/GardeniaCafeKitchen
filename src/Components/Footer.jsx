@@ -16,11 +16,17 @@ const Footer = () => {
                     </p>
                     <p className="footer-text">
                         <FaPhone className="footer-icon" />
-                        +61 8 9407 8749
+                        <a href="tel:+61 8 9407 8749">+61 8 9407 8749 </a>
                     </p>
                     <p className="footer-text">
                         <FaMapMarkerAlt className="footer-icon" />
-                        Shop 12/1244 Marmion Ave, Currambine WA 6028, Australia
+                        <a
+                            href="https://www.google.co.in/maps/place/Gardenia+CafeKitchen/@-31.740675,115.7390882,15z/data=!4m6!3m5!1s0x2bcd55cc1864e6b5:0x79eff58dd96a2396!8m2!3d-31.7409466!4d115.7391407!16s%2Fg%2F11l2f69p2r?entry=tts&g_ep=EgoyMDI0MTExOS4wIPu8ASoASAFQAw%3D%3D"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Shop 12/1244 Marmion Ave, Currambine WA 6028, Australia
+                        </a>
                     </p>
                 </div>
 
@@ -38,10 +44,10 @@ const Footer = () => {
                             <Link to="/gallery" className="footer-link">Gallery</Link>
                         </li>
                         <li>
-                            <Link to="/contact-us" className="footer-link">Contact Us</Link>
+                            <Link to="/about-us" className="footer-link">About Us</Link>
                         </li>
                         <li>
-                            <Link to="/about-us" className="footer-link">About Us</Link>
+                            <Link to="/contact-us" className="footer-link">Contact Us</Link>
                         </li>
                     </ul>
                 </div>

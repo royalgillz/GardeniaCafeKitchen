@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/gardeniacafelogo.png";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,7 +18,7 @@ const Header = () => {
             <div className="header-content">
                 {/* Logo */}
                 <div className="logo">
-                    <img src="/logo.png" alt="Website Logo" />
+                    <img src={logo} alt="Website Logo" />
                 </div>
 
                 {/* Title */}
@@ -30,14 +31,14 @@ const Header = () => {
                 {/* Navigation Links */}
                 <nav className={`nav-links ${isMenuOpen ? "open" : ""}`}>
                     <div className="sidebar-logo">
-                        <img src="/logo.png" alt="Website Logo" />
+                        <img src={logo} alt="Website Logo" />
                     </div>
                     <ul>
                         <li>
                             <Link to="" onClick={closeMenu}>Home</Link>
                         </li>
                         <li>
-                            <Link to="about" onClick={closeMenu}>About</Link>
+                            <Link to="about-us" onClick={closeMenu}>About</Link>
                         </li>
                         <li>
                             <Link to="menu" onClick={closeMenu}>Menu</Link>
