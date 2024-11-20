@@ -1,8 +1,8 @@
 // AppRoutes.jsx
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
-// import Header from './header/Header1'
+import Header from './Header'
 import Footer from './Footer'
 //Home
 import HomePage from './home/HomePage'
@@ -19,8 +19,8 @@ const AppRoutes = () => {
     return (
         <Router>
             <ScrollToTop />
-            {/* <Header />
-            <SideMenu /> */}
+            <Header />
+            {/* <SideMenu /> */}
             <Routes>
                 {/* Home */}
                 <Route path="/" element={<HomePage />} />

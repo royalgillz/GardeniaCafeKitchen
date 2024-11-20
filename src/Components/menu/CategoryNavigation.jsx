@@ -11,7 +11,7 @@ const CategoryNavigation = ({ categories }) => {
                         <Link
                             to={category.id} // Target category ID
                             // smooth={true} // Enable smooth scrolling
-                            offset={-155} // Offset equal to the height of the sticky nav
+                            offset={-235} // Offset equal to the height of the sticky nav
                         // duration={500} // Scrolling duration in ms
                         >
                             {category.name}
