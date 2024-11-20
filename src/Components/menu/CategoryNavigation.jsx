@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
+import FilterBar from './FilterBar';
 
-const CategoryNavigation = ({ categories }) => {
+const CategoryNavigation = ({ categories, filterText, setFilterText }) => {
     const [offset, setOffset] = useState(-235); // Default offset for larger screens
 
     useEffect(() => {
         const updateOffset = () => {
             // Set different offsets based on screen width
-            // setOffset(window.innerWidth <= 768 ? -283 : -235);
-            // setOffset(window.innerWidth <= 400 ? -283 : -235);
-            setOffset(window.innerWidth <= 400 ? -283 : window.innerWidth <= 768 ? -262 : -235);
-
+            setOffset(window.innerWidth <= 400 ? -283 : window.innerWidth <= 768 ? -265 : -235);
         };
 
         // Initial check
@@ -42,6 +40,8 @@ const CategoryNavigation = ({ categories }) => {
                     </li>
                 ))}
             </ul>
+            {/* FilterBar added here */}
+            <FilterBar filterText={filterText} setFilterText={setFilterText} />
         </div>
     );
 };

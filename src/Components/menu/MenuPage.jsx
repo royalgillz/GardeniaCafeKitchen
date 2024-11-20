@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import CategorySection from './CategorySection';
-import FilterBar from './FilterBar';
 import HighlightedPhoto from './HighlightedPhoto';
 import CategoryNavigation from './CategoryNavigation';
 import { breakfastMenu, lunchMenu, kidsMenu, freshSaladsMenu, extrasMenu, sideMenu } from '../../assets/menuData';
 
 const MenuPage = () => {
-    const [filterText, setFilterText] = useState('');
+    const [filterText, setFilterText] = useState(''); // Filter state moved to pass as props
     const categories = [
         { id: 'breakfast', name: 'Breakfast Menu', items: breakfastMenu },
         { id: 'lunch', name: 'Lunch Menu', items: lunchMenu },
-        // { id: 'eggs', name: 'Egg Benedict', items: eggBenedictMenu },
         { id: 'salads', name: 'Fresh Salads', items: freshSaladsMenu },
         { id: 'kids', name: 'Kids\' Menu', items: kidsMenu },
         { id: 'extras', name: 'Extras', items: extrasMenu },
         { id: 'sides', name: 'Sides', items: sideMenu },
-        // { id: 'sandwiches', name: 'Sandwiches & Wraps', items: sandwichesMenu },
     ];
 
     const filteredCategories = categories.map((category) => ({
@@ -45,14 +42,16 @@ const MenuPage = () => {
             .filter((item) => item !== null), // Remove null items
     }));
 
-
     return (
         <div className="menu-page">
             <HighlightedPhoto />
-            <CategoryNavigation categories={categories} />
-            <FilterBar filterText={filterText} setFilterText={setFilterText} />
+            <CategoryNavigation
+                categories={categories}
+                filterText={filterText}
+                setFilterText={setFilterText} // Pass filterText state as props
+            />
             <div className="menu-categories">
-                {filteredCategories.map(category => (
+                {filteredCategories.map((category) => (
                     <CategorySection key={category.id} category={category} />
                 ))}
             </div>

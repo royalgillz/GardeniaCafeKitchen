@@ -379,8 +379,8 @@
 .filter-bar {
   display: flex;
   justify-content: space-between;
-  position: sticky;
-  top: 199px;
+  /* position: sticky; */
+  /* top: 199px; */
 }
 
 .filter-bar input {
@@ -537,10 +537,6 @@
 
   .filter-bar {
     top: 227px;
-  }
-
-  .filter-bar input {
-    margin-bottom: 20px;
   }
 }
 
