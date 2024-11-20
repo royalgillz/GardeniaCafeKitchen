@@ -7,7 +7,10 @@ const CategoryNavigation = ({ categories }) => {
     useEffect(() => {
         const updateOffset = () => {
             // Set different offsets based on screen width
-            setOffset(window.innerWidth <= 768 ? -305 : -235);
+            // setOffset(window.innerWidth <= 768 ? -283 : -235);
+            // setOffset(window.innerWidth <= 400 ? -283 : -235);
+            setOffset(window.innerWidth <= 400 ? -283 : window.innerWidth <= 768 ? -262 : -235);
+
         };
 
         // Initial check

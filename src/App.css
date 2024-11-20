@@ -523,19 +523,30 @@
   .category-navigation {
     top: 111px;
     padding: 5px;
+
+    h3 {
+      margin: 5px;
+    }
   }
 
   .category-navigation ul {
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
+    margin: 0;
   }
 
   .filter-bar {
-    top: 269px;
+    top: 227px;
   }
 
   .filter-bar input {
     margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .filter-bar {
+    top: 247px;
   }
 }
 

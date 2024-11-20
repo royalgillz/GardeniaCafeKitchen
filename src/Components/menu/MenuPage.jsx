@@ -14,16 +14,37 @@ const MenuPage = () => {
         { id: 'salads', name: 'Fresh Salads', items: freshSaladsMenu },
         { id: 'kids', name: 'Kids\' Menu', items: kidsMenu },
         { id: 'extras', name: 'Extras', items: extrasMenu },
-        { id: '', name: 'Sides', items: sideMenu },
+        { id: 'sides', name: 'Sides', items: sideMenu },
         // { id: 'sandwiches', name: 'Sandwiches & Wraps', items: sandwichesMenu },
     ];
 
-    const filteredCategories = categories.map(category => ({
+    const filteredCategories = categories.map((category) => ({
         ...category,
-        items: category.items.filter(item =>
-            item.name.toLowerCase().includes(filterText.toLowerCase())
-        ),
+        items: category.items
+            .map((item) => {
+                // Filter subItems if they exist
+                if (item.subItems) {
+                    const filteredSubItems = item.subItems.filter((subItem) =>
+                        subItem.name.toLowerCase().includes(filterText.toLowerCase())
+                    );
+
+                    // If subItems match the filter, include the parent item
+                    if (filteredSubItems.length > 0) {
+                        return { ...item, subItems: filteredSubItems };
+                    }
+                }
+
+                // Check the main item name
+                if (item.name.toLowerCase().includes(filterText.toLowerCase())) {
+                    return item;
+                }
+
+                // Exclude item if no match
+                return null;
+            })
+            .filter((item) => item !== null), // Remove null items
     }));
+
 
     return (
         <div className="menu-page">
