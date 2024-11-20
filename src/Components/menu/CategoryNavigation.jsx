@@ -1,7 +1,27 @@
-import React from 'react';
-import { Link } from 'react-scroll'; // Import the library
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-scroll';
 
 const CategoryNavigation = ({ categories }) => {
+    const [offset, setOffset] = useState(-235); // Default offset for larger screens
+
+    useEffect(() => {
+        const updateOffset = () => {
+            // Set different offsets based on screen width
+            setOffset(window.innerWidth <= 768 ? -305 : -235);
+        };
+
+        // Initial check
+        updateOffset();
+
+        // Add event listener to handle window resize
+        window.addEventListener('resize', updateOffset);
+
+        // Cleanup event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', updateOffset);
+        };
+    }, []);
+
     return (
         <div className="category-navigation">
             <h3>Menu Categories</h3>
@@ -11,7 +31,7 @@ const CategoryNavigation = ({ categories }) => {
                         <Link
                             to={category.id} // Target category ID
                             // smooth={true} // Enable smooth scrolling
-                            offset={-235} // Offset equal to the height of the sticky nav
+                            offset={offset} // Dynamic offset
                         // duration={500} // Scrolling duration in ms
                         >
                             {category.name}

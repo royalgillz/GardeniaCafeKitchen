@@ -371,7 +371,7 @@
 /* Menu Page */
 /* ----------------------------------------------------------------------------------------------------------------------------- */
 .menu-page {
-  padding: 20px;
+  padding: 20px 2px;
   font-family: Arial, sans-serif;
 }
 
@@ -390,6 +390,10 @@
   /* margin-bottom: 20px; */
   border: 1px solid var(--light-orange);
   border-radius: 4px;
+  color: var(--light-green);
+}
+
+.filter-bar ::placeholder {
   color: var(--light-green);
 }
 
@@ -514,6 +518,26 @@
 /* .menu-categories {
   background-color: var(--orange);
 } */
+
+@media (max-width: 768px) {
+  .category-navigation {
+    top: 111px;
+    padding: 5px;
+  }
+
+  .category-navigation ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .filter-bar {
+    top: 269px;
+  }
+
+  .filter-bar input {
+    margin-bottom: 20px;
+  }
+}
 
 /* ----------------------------------------------------------------------------------------------------------------------------- */
 /* Contact Us Page */

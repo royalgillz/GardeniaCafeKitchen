@@ -12,7 +12,11 @@ const MenuItem = ({ item }) => {
                 <ul className="sub-items">
                     {item.subItems.map((subItem) => (
                         <li key={subItem.name} className="sub-item">
-                            <span>{subItem.name}</span>
+                            <div>
+                                <span>{subItem.name}</span>
+                                {subItem.description && <p className="sub-item-description">{subItem.description}</p>}
+                            </div>
+                            &nbsp;&nbsp;
                             <span className="price">${subItem.price.toFixed(2)}</span>
                         </li>
                     ))}

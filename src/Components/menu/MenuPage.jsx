@@ -3,7 +3,7 @@ import CategorySection from './CategorySection';
 import FilterBar from './FilterBar';
 import HighlightedPhoto from './HighlightedPhoto';
 import CategoryNavigation from './CategoryNavigation';
-import { breakfastMenu, lunchMenu, kidsMenu, sandwichesMenu, freshSaladsMenu, extrasMenu } from '../../assets/menuData';
+import { breakfastMenu, lunchMenu, kidsMenu, freshSaladsMenu, extrasMenu, sideMenu } from '../../assets/menuData';
 
 const MenuPage = () => {
     const [filterText, setFilterText] = useState('');
@@ -14,7 +14,8 @@ const MenuPage = () => {
         { id: 'salads', name: 'Fresh Salads', items: freshSaladsMenu },
         { id: 'kids', name: 'Kids\' Menu', items: kidsMenu },
         { id: 'extras', name: 'Extras', items: extrasMenu },
-        { id: 'sandwiches', name: 'Sandwiches & Wraps', items: sandwichesMenu },
+        { id: '', name: 'Sides', items: sideMenu },
+        // { id: 'sandwiches', name: 'Sandwiches & Wraps', items: sandwichesMenu },
     ];
 
     const filteredCategories = categories.map(category => ({

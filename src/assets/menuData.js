@@ -1,29 +1,29 @@
 export const breakfastMenu = [
-    { name: 'Vegetarian Breakfast', description: 'Two eggs, toast, avocado...', price: 24.0 },
-    { name: 'The Big Breakfast', description: 'Eggs, bacon, sausage, hash browns...', price: 24.0 },
-    { name: 'Smashed Avo', description: '', price: 20.0 },
+    { name: 'Vegetarian Breakfast', description: 'Two eggs cooked your way, asparagus or baby brocolli, cherry tomato, mushroom, red capsicum, baby spinach, avacado, sewed with toasted ciabatta bread.', price: 24.0 },
+    { name: 'The Big Breakfast', description: 'Scrambled, fried or poached eggs, ciabetta toast, bacon, sausage, mushroom, hash brown, grilled tomatoes and baked beans.', price: 24.0 },
     {
-        name: 'Smashed Avo on Sourdough',
+        name: 'SMASHED AVO',
         description: '',
         subItems: [
-          { name: 'Smashed Avo w/Bacon', price: 22.0 },
-          { name: 'Smashed Avo w/Smoked Salmon', price: 22.0 },
+            {name: 'Smashed Avo on Sourdough', price: 20.0, description: 'Two poached eggs with smashed avacado, feta cheese, lemon, pumpkin seeds and pomengranate sauce.'},
+            { name: 'Smashed Avo w/Bacon', price: 22.0 },
+            { name: 'Smashed Avo w/Smoked Salmon', price: 22.0 },
         ],
       },
-    { name: 'Toast or Croissant with Condiments', description: 'Eggs, bacon, sausage, hash browns...', price: 7.0 },
-    { name: 'B.L.T', description: 'Eggs, bacon, sausage, hash browns...', price: 14.0 },
+    { name: 'Toast or Croissant with Condiments', description: 'Ciabetta, wholemeal, multigrain or croissant with butter, honey or jam.', price: 7.0 },
+    { name: 'B.L.T', description: 'Lettuce, tomato, bacon and caesar dressing sauce in a burger bun.', price: 14.0 },
     {
-        name: 'Omelette Bar',
-        description: 'Ask for our own omelette menu and make it your own way',
+        name: 'OMELETTE BAR',
+        description: 'Ask for our own omelette menu and make it your way.',
         subItems: [
-          { name: 'Bacon Omelette', price: 19.0 },
-          { name: 'Vegetarian Omelette', price: 18.0 },
+          { name: 'Bacon Omelette', price: 19.0, description: 'Bacon, sausage, capsicum, mushroom and red onion, served with ciabatta toast.' },
+          { name: 'Vegetarian Omelette', price: 18.0, description: 'Mushroom, red onion, capsicum, spinach and feta.' },
         ],
       },
-    { name: 'Eggs on Toast', description: 'Eggs, bacon, sausage, hash browns...', price: 13.5 },
-    { name: 'Pancake', description: 'Eggs, bacon, sausage, hash browns...', price: 13.0 },
+    { name: 'Eggs on Toast', description: 'Scrambled, fried or poached eggs on ciabetta toast and mushrooms.', price: 13.5 },
+    { name: 'Pancake', description: 'With seasonal fruit, maple flavoured syrup and ice cream.', price: 13.0 },
     {
-        name: 'Egg Benedict',
+        name: 'EGG BENEDICT',
         description: 'Served with two poached eggs on toasted ciabatta bread.',
         subItems: [
             { name: 'Eggs Benedict w/Bacon or Ham', price: 21.0 },
@@ -36,10 +36,10 @@ export const breakfastMenu = [
   
   
   export const lunchMenu = [
-    { name: 'Gardenia Style Soup', description: '', price: 18.0 },
+    { name: 'Gardenia Style Soup', description: 'Pumpkin and leek served with bread.', price: 13.0 },
     {
         name: 'Beef Burger and Chips',
-        description: 'Beef patty, caramelized onion, tomato...',
+        description: 'Beef patty, garden salad, tomato, caramelized onion, thousand-island sauce, cheese, in a burger bun.',
         subItems: [
             { name: 'Without Bacon', price: 18.00 },
             { name: 'With Bacon', price: 18.50 },
@@ -47,47 +47,77 @@ export const breakfastMenu = [
     },
     {
         name: 'Chicken Burger and Chips',
-        description: 'Southern fried chicken',
+        description: 'Southern fried chicken, garden salad, tomato, cheese, caesar dressing sauce.',
         subItems: [
             { name: 'Without Bacon', price: 18.00 },
             { name: 'With Bacon', price: 18.50 },
         ],
     },
-    { name: 'Steak Sandwich and Chips', description: '', price: 20.0 },
-    { name: 'Seafood Basket and Chips', description: '', price: 19.0 },
-    { name: 'Beer Battered Whiting Fish and Chips', description: '', price: 19.0 },
-    { name: 'Bruschetta with Poached Egg', description: '', price: 16.0 },
+    { name: 'Steak Sandwich and Chips', description: 'Beef steak, garden salad, tomato, caramelized onion, cheese, tomato relish and mustard sauce.', price: 20.0 },
+    { name: 'Seafood Basket and Chips', description: 'Fish fillet, prawns, squid rings, surimi bites, surimi scallop, garden salad and tartare sauce.', price: 19.0 },
+    { name: 'Beer Battered Whiting Fish and Chips', description: 'Garden salad and tartare sauce.', price: 19.0 },
+    { name: 'Bruschetta with Poached Egg', description: 'Poached egg, ripe tomato, basil, onion, dressing sauce on toasted ciabatta bread.', price: 16.0 },
     // Add more items...
   ];
   
   export const freshSaladsMenu = [
-      { name: 'Chicken Caesar Salad', description: 'Chicken, lettuce, parmesan, croutons...', price: 17.0 },
-      { name: 'Pulled Beef Salad', description: '', price: 17.0 },
-      { name: 'Beetroot, Feta & Walnut Salad', description: 'Beetroot, feta cheese, walnuts...', price: 17.0 },
+      { name: 'Chicken Caesar Salad', description: 'Grilled bacon, grilled chicken, cos lettuce, red onion, poached egg, parmesan, cucumber, cherry tomato and caesar dressing sauce.', price: 17.0 },
+      { name: 'Pulled Beef Salad', description: 'Garden salad, red onion, cherry tomato, cucumber, feta cheese, walnut, balsamic dressing.', price: 17.0 },
+      { name: 'Beetroot, Feta & Walnut Salad', description: 'Garden salad, walnut, feta cheese, beetroot, red onion, cucumber, cherry tomato, balsamic dressing.', price: 17.0 },
       // Add more items...
     ];
 
   export const kidsMenu = [
-    { name: 'Kids Brekky', description: 'Eggs, hash brown, sausage, baked beans...', price: 10.0 },
-    { name: 'Kids Pancakes', description: 'Two pancakes, syrup, seasonal fruit...', price: 8.0 },
-    { name: 'Chicken Nuggets', description: '', price: 12.0 },
-    { name: 'Kids Fish and Chips', description: 'Fish, chips with tomato sauce', price: 12.0 },
+    { name: 'Kids Brekky', description: 'Eggs, hash brown, sausage, baked beans with bread.', price: 10.0 },
+    { name: 'Kids Pancakes', description: 'Two sliced pancakes, syrup, ice cream with seasonal fruit', price: 8.0 },
+    { name: 'Chicken Nuggets', description: 'Six nuggets with tomato sauce.', price: 12.0 },
+    { name: 'Kids Fish and Chips', description: 'Fish, chips with tomato sauce.', price: 12.0 },
+    // Sandwiches & wraps
+    {
+        name: 'Sandwiches & Wraps',
+        description: '(Gluten Free Bread Available)',
+        subItems: [
+            { name: 'Croissant with Ham and Cheese', price: 9.0, description: '' },
+            { name: 'Ham and Cheese', price: 9.0, description: '' },
+            { name: 'Bacon and Egg in a Bun', price: 10.0, description: '' },
+            { name: 'Roast Chicken Panini', price: 12.0, description: 'Roasted chicken, cheese, spinach, sweet chilli and sour cream sauces in a panini toasted.' },
+            { name: 'BBQ Pulled Beef', price: 12.0, description: 'Pulled beef, cheese, spinach, BBQ and mustard sauce.' },
+            { name: 'Chicken Avocado Toastle', price: 12.0, description: 'Roasted chicken, cheese, spinach, avocade and aioli sauce.'},
+        ],
+    },
+    {
+        name: 'Toasted Wraps',
+        description: 'On a toasted tortilla',
+        subItems: [
+            { name: 'Roasted Chicken Wrap', price: 12.0, description: 'Chicken, cheese, garden salad, and tomato relish sauce.'},
+            { name: 'Bacon and Egg Wraps', price: 12.0, description: 'Bacon, egg cheese, garden salad, sundried tomato, and tomato relish sauce.'},
+            { name: 'Veggie and Feta Wrap', price: 12.0, description: 'Red capsicum, onion, sundried tomato, garden salad, feta cheese, black olives and hollandaise sauce with egg.'},
+        ]
+    }
+
     // Add more items...
   ];
     
-    export const extrasMenu = [
-        { name: 'Avocado', description: 'Freshly sliced avocado', price: 4.0 },
-        { name: 'Hash Browns', description: 'Crispy hash browns', price: 3.0 },
-        { name: 'Bacon', description: '', price: 4.0 },
-        { name: 'Salmon', description: '', price: 5.0 },
-        { name: 'Egg each', description: '', price: 3.0 },
-        // Add more items...
-    ];
+  export const extrasMenu = [
+    { name: 'Avocado', description: 'Perfectly ripe, freshly sliced avocado', price: 4.0 },
+    { name: 'Hash Browns', description: 'Golden brown, crispy and fluffy hash browns', price: 3.0 },
+    { name: 'Bacon', description: 'Sizzling, perfectly crispy smoked bacon', price: 4.0 },
+    { name: 'Salmon', description: 'Delicate and flavorful smoked salmon slices', price: 5.0 },
+    { name: 'Egg each', description: 'Farm-fresh eggs, cooked just the way you like', price: 3.0 },
+    // Add more items...
+];
+
+export const sideMenu = [
+    { name: 'Chips with Tomato Sauce.', description: '', price: 7.0 },
+    { name: 'Seasoned wedges with sweet chilli, and sour sauces', description: '', price: 9.0 },
+    // Add more items...
+];
+
     
-    export const sandwichesMenu = [
-      { name: 'Croissant with Ham and Cheese', description: 'Ham and melted cheese in a sandwich...', price: 9.0 },
-      { name: 'Ham and Cheese', description: 'Ham and melted cheese in a sandwich...', price: 9.0 },
-      { name: 'Bacon and Egg in a Bun', description: 'Ham and melted cheese in a sandwich...', price: 10.0 },
-      { name: 'Roast Chicken Panini', description: 'Roast chicken, spinach, cheese...', price: 12.0 },
-      // Add more items...
-    ];
+    // export const sandwichesMenu = [
+    //   { name: 'Croissant with Ham and Cheese', description: 'Ham and melted cheese in a sandwich...', price: 9.0 },
+    //   { name: 'Ham and Cheese', description: 'Ham and melted cheese in a sandwich...', price: 9.0 },
+    //   { name: 'Bacon and Egg in a Bun', description: 'Ham and melted cheese in a sandwich...', price: 10.0 },
+    //   { name: 'Roast Chicken Panini', description: 'Roast chicken, spinach, cheese...', price: 12.0 },
+    //   // Add more items...
+    // ];
