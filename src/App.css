@@ -48,7 +48,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: var(--brown);
+  background-color: var(--green);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   padding: 10px 20px;
   border-radius: 0 0 5px 5px;
@@ -901,4 +901,94 @@
   list-style-type: disc;
   padding-left: 2rem;
   color: var(--brown);
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/* Gallery Page Styles */
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+/* Gallery Page */
+.gallery-page {
+  padding: 20px;
+  /* background-color: var(--light-yellow); */
+  color: var(--brown);
+  text-align: center;
+}
+
+.gallery-title {
+  font-size: 2rem;
+  color: var(--dark-orange);
+  margin-bottom: 20px;
+}
+
+/* Slideshow */
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 400px;
+}
+
+.slide-image {
+  width: 100%;
+  display: block;
+  border: 2px solid var(--orange);
+}
+
+.slide-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--dark-orange);
+  color: var(--light-yellow);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.slide-button:first-of-type {
+  left: 10px;
+}
+
+.slide-button:last-of-type {
+  right: 10px;
+}
+
+/* Photo Grid */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.photo-grid-item {
+  overflow: hidden;
+  border: 2px solid var(--orange);
+  border-radius: 10px;
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Social Media Feed */
+.social-media-feed {
+  margin: 30px 0;
+  font-size: 1.2rem;
+}
+
+.social-link {
+  color: var(--dark-orange);
+  text-decoration: none;
+}
+
+.social-link:hover {
+  color: var(--orange);
 }
