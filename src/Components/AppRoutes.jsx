@@ -15,6 +15,7 @@ import ScrollToTop from './ScrollToTop';
 import AboutUsPage from './about/AboutUsPage';
 //Contact Us
 import ContactUsPage from './contactus/ContactUs';
+import GalleryPage from './gallery/GalleryPage';
 
 
 const AppRoutes = () => {
@@ -30,6 +31,8 @@ const AppRoutes = () => {
                 <Route path="/about-us" element={<AboutUsPage />} />
                 {/* Menu */}
                 <Route path="/menu" element={<MenuPage />} />
+                {/* Gallery */}
+                <Route path="/gallery" element={<GalleryPage />} />
                 {/* Contact Us */}
                 <Route path="/contact-us" element={<ContactUsPage />} />
             </Routes>
