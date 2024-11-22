@@ -12,7 +12,7 @@ const Footer = () => {
                     <p className="footer-text">"Freshness in Every Bite"</p>
                     <p className="footer-text">
                         <FaClock className="footer-icon" />
-                        Open Daily: 11:30 AM - 2:00 PM
+                        Open Mon - Sat : 8:00 AM - 2:00 PM
                     </p>
                     <p className="footer-text">
                         <FaPhone className="footer-icon" />
@@ -59,9 +59,9 @@ const Footer = () => {
                         <a href="https://www.facebook.com/profile.php?id=100094037439165" target="_blank" rel="noopener noreferrer" className="footer-social-link">
                             <FaFacebook />
                         </a>
-                        <a target="_blank" rel="noopener noreferrer" className="footer-social-link">
+                        {/* <a target="_blank" rel="noopener noreferrer" className="footer-social-link">
                             <FaInstagram />
-                        </a>
+                        </a> */}
                     </div>
                 </div>
             </div>

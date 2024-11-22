@@ -1,6 +1,6 @@
 import React from 'react';
 import AboutIntro from './AboutIntro';
-import TeamSection from './TeamSection';
+// import TeamSection from './TeamSection';
 import ValuesSection from './ValuesSection';
 
 const AboutUsPage = () => {
@@ -12,10 +12,10 @@ const AboutUsPage = () => {
         mission: "Our Mission: To serve fresh, sustainable, and heartwarming food that brings people together."
     };
 
-    const teamData = [
-        { name: "John Doe", role: "Founder & Chef", bio: "John has over 20 years of culinary experience and a passion for bringing people together over food." },
-        { name: "Jane Smith", role: "Co-Owner", bio: "Jane believes in sustainability and ensures all our ingredients are sourced ethically." }
-    ];
+    // const teamData = [
+    //     { name: "John Doe", role: "Founder & Chef", bio: "John has over 20 years of culinary experience and a passion for bringing people together over food." },
+    //     { name: "Jane Smith", role: "Co-Owner", bio: "Jane believes in sustainability and ensures all our ingredients are sourced ethically." }
+    // ];
 
     const valuesData = [
         "Sustainability - At Gardenia CafeKitchen, we are committed to eco-friendly practices, ensuring a positive impact on the environment with every dish we serve.",
@@ -28,7 +28,7 @@ const AboutUsPage = () => {
     return (
         <div className="about-us-page">
             <AboutIntro data={introData} />
-            <TeamSection team={teamData} />
+            {/* <TeamSection team={teamData} /> */}
             <ValuesSection values={valuesData} />
         </div>
     );

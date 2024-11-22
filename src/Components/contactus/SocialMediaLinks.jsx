@@ -8,9 +8,9 @@ const SocialMediaLinks = ({ links }) => {
             <a href={links.facebook} target="_blank" rel="noopener noreferrer">
                 <FaFacebook className="fab fa-facebook"></FaFacebook>
             </a>
-            <a href={links.instagram} target="_blank" rel="noopener noreferrer">
+            {/* <a href={links.instagram} target="_blank" rel="noopener noreferrer">
                 <FaInstagram className="fab fa-instagram"></FaInstagram>
-            </a>
+            </a> */}
             {/* <a href={links.twitter} target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-twitter"></i>
             </a> */}

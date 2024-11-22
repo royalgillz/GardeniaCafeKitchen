@@ -63,6 +63,7 @@
 /* Logo */
 .logo img {
   height: 50px;
+  width: 80px;
 }
 
 /* Title */
@@ -147,7 +148,7 @@
     width: 250px;
     height: 100%;
     flex-direction: column;
-    background-color: var(--light-yellow);
+    background-color: rgba(34, 139, 34, 0.95);
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     transform: translateX(-100%);
@@ -177,7 +178,7 @@
 
   .nav-links ul li a {
     text-decoration: none;
-    color: var(--dark-brown);
+    color: var(--light-yellow);
     font-weight: bold;
     transition: color 0.3s;
   }
@@ -195,6 +196,11 @@
     width: 120px;
     /* Adjust as needed */
     height: auto;
+  }
+
+  .logo img {
+    height: 50px;
+    width: auto;
   }
 
   .sidebar-logo {
@@ -811,7 +817,7 @@
 .contact-form input,
 .contact-form textarea {
   padding: 10px;
-  border: 1px solid var(--light-orange);
+  border: 1px solid var(--orange);
   border-radius: 4px;
 }
 
