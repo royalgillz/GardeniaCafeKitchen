@@ -719,7 +719,7 @@
 
 @media (max-width: 768px) {
   .category-navigation {
-    top: 111px;
+    top: 82px;
     padding: 5px;
 
     h3 {
@@ -745,24 +745,24 @@
   }
 }
 
-@media (max-width: 768px) {
-  .category-navigation {
-    top: 83px;
-  }
-}
-
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
   .filter-bar {
     top: 247px;
   }
-}
+} */
 
-@media (max-width: 430px) {
+/* @media (max-width: 430px) {
+  .category-navigation {
+    top: 82px;
+  }
+} */
+
+@media (max-width: 359px) {
   .category-navigation {
     top: 111px;
   }
-
 }
+
 
 /* ----------------------------------------------------------------------------------------------------------------------------- */
 /* Contact Us Page */
