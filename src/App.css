@@ -257,8 +257,8 @@
 .visit-us-button {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: var(--orange);
-  color: var(--light-green);
+  background-color: var(--dark-orange);
+  color: var(--light-yellow);
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -267,7 +267,7 @@
 }
 
 .visit-us-button:hover {
-  background-color: var(--dark-orange);
+  background-color: var(--light-yellow);
 }
 
 /* Highlights */
@@ -980,8 +980,9 @@
 
 .photo {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
 }
 
 /* Social Media Feed */

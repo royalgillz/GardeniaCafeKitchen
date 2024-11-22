@@ -24,7 +24,7 @@ const GalleryPage = () => {
             <PhotoGrid
                 photos={[
                     { src: cozyenvironmentimage, alt: 'Cozy seating area' },
-                    // { src: coffeeimage, alt: 'Special coffee' },
+                    { src: coffeeimage, alt: 'Special coffee' },
                     { src: pastaimage, alt: 'Delicious pasta' },
                     // { src: '/images/exterior1.jpg', alt: 'Exterior view' },
                     { src: livemusicimage, alt: 'Live music night' },
