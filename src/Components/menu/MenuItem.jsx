@@ -1,27 +1,37 @@
 import React from 'react';
 
 const MenuItem = ({ item }) => {
-    return (
-        <div className="menu-item">
-            <div>
-                <h3>{item.name}</h3>
-                {item.description && <p>{item.description}</p>}
-            </div>
-            {!item.subItems && <span className="price">${item.price.toFixed(2)}</span>}
-            {item.subItems && (
+    if (item.subItems) {
+        return (
+            <div className="menu-item menu-item--group">
+                <div className="menu-item-header">
+                    <h3>{item.name}</h3>
+                    {item.description && <p className="menu-item-desc">{item.description}</p>}
+                </div>
                 <ul className="sub-items">
                     {item.subItems.map((subItem) => (
                         <li key={subItem.name} className="sub-item">
-                            <div>
-                                <span>{subItem.name}</span>
-                                {subItem.description && <p className="sub-item-description">{subItem.description}</p>}
+                            <div className="sub-item-info">
+                                <span className="sub-item-name">{subItem.name}</span>
+                                {subItem.description && (
+                                    <span className="sub-item-desc">{subItem.description}</span>
+                                )}
                             </div>
-                            &nbsp;&nbsp;
-                            <span className="price">${subItem.price.toFixed(2)}</span>
+                            <span className="menu-price">${subItem.price.toFixed(2)}</span>
                         </li>
                     ))}
                 </ul>
-            )}
+            </div>
+        );
+    }
+
+    return (
+        <div className="menu-item">
+            <div className="menu-item-info">
+                <h3>{item.name}</h3>
+                {item.description && <p className="menu-item-desc">{item.description}</p>}
+            </div>
+            <span className="menu-price">${item.price.toFixed(2)}</span>
         </div>
     );
 };

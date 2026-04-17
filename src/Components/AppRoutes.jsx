@@ -1,41 +1,30 @@
-// AppRoutes.jsx
 import React from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-
-import Header from './Header'
-import Footer from './Footer'
-//Home
-import HomePage from './home/HomePage'
-//Menu
-import MenuPage from './menu/MenuPage'
-
-
 import ScrollToTop from './ScrollToTop';
-//About Us
+import Header from './Header';
+import Footer from './Footer';
+import HomePage from './home/HomePage';
 import AboutUsPage from './about/AboutUsPage';
-//Contact Us
-import ContactUsPage from './contactus/ContactUs';
+import MenuPage from './menu/MenuPage';
 import GalleryPage from './gallery/GalleryPage';
-
+import ContactUsPage from './contactus/ContactUs';
+import NotFoundPage from './NotFoundPage';
 
 const AppRoutes = () => {
     return (
         <Router>
             <ScrollToTop />
             <Header />
-            {/* <SideMenu /> */}
-            <Routes>
-                {/* Home */}
-                <Route path="/" element={<HomePage />} />
-                {/* About Us */}
-                <Route path="/about-us" element={<AboutUsPage />} />
-                {/* Menu */}
-                <Route path="/menu" element={<MenuPage />} />
-                {/* Gallery */}
-                <Route path="/gallery" element={<GalleryPage />} />
-                {/* Contact Us */}
-                <Route path="/contact-us" element={<ContactUsPage />} />
-            </Routes>
+            <main>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/about-us" element={<AboutUsPage />} />
+                    <Route path="/menu" element={<MenuPage />} />
+                    <Route path="/gallery" element={<GalleryPage />} />
+                    <Route path="/contact-us" element={<ContactUsPage />} />
+                    <Route path="*" element={<NotFoundPage />} />
+                </Routes>
+            </main>
             <Footer />
         </Router>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 import HeroSection from './HeroSection';
 import Highlights from './Highlights';
 import Carousel from './Carousel';
-// import Testimonials from './Testimonials';
+import Testimonials from './Testimonials';
 import OpeningHours from './OpeningHours';
 import bigbreakfastimage from '../../assets/the-big-breakfast.jpg';
 import eggbenedictimage from '../../assets/egg-benedict.jpg';
@@ -13,8 +13,8 @@ const HomePage = () => {
     return (
         <div className="home-page">
             <HeroSection
-                tagline="Welcome to Gardenia CafeKitchen - Where Every Bite Tells a Story"
-                image={herosectionimage1} // Replace with actual image path
+                tagline="Where Every Bite Tells a Story"
+                image={herosectionimage1}
             />
             <Highlights
                 features={[
@@ -22,27 +22,26 @@ const HomePage = () => {
                     'Vegetarian and vegan-friendly options',
                     'Cozy ambiance for family and friends',
                     'All-day breakfast available',
-                    'Special coffee blends and desserts',
+                    'Specialty coffee blends and desserts',
                 ]}
             />
             <Carousel
                 dishes={[
-                    { name: 'The Big Breakfast', description: 'A hearty mix of all your breakfast favorites.', image: bigbreakfastimage },
-                    { name: 'Eggs Benedict', description: 'Perfectly poached eggs on toasted ciabatta.', image: eggbenedictimage },
-                    { name: 'Bruschetta', description: 'Crispy toasted bread topped with a flavorful blend of fresh tomatoes, garlic, basil, and a drizzle of olive oil.', image: bruschettaimage },
+                    { name: 'The Big Breakfast', description: 'Scrambled eggs, bacon, sausage, hash brown, grilled tomatoes, mushrooms, and baked beans on toasted ciabatta.', image: bigbreakfastimage },
+                    { name: 'Eggs Benedict', description: 'Perfectly poached eggs on toasted ciabatta with your choice of bacon, ham, or smoked salmon.', image: eggbenedictimage },
+                    { name: 'Bruschetta', description: 'Crispy toasted bread topped with fresh tomatoes, garlic, basil, and a drizzle of olive oil, finished with a poached egg.', image: bruschettaimage },
                 ]}
             />
-            {/* <Testimonials
+            <Testimonials
                 reviews={[
-                    { name: 'John Doe', text: 'Best cafe in town! Love the ambiance and food.', rating: 5 },
-                    { name: 'Jane Smith', text: 'Amazing breakfast options. Highly recommend!', rating: 4.5 },
-                    { name: 'Sam Wilson', text: 'Great service and delicious coffee.', rating: 4.8 },
+                    { name: 'Sarah M.', text: 'Best cafe in Currambine! The Big Breakfast is incredible and the coffee is always perfect. A real gem of a place.', rating: 5 },
+                    { name: 'James T.', text: 'Amazing breakfast options and such a warm, friendly atmosphere. We come every Saturday morning without fail.', rating: 4.5 },
+                    { name: 'Priya K.', text: 'Great vegetarian options and the staff always remember our orders. Feels like a home away from home.', rating: 5 },
                 ]}
-            /> */}
+            />
             <OpeningHours
                 hours={[
                     { day: 'Monday - Saturday', time: '8:00 AM - 2:00 PM' },
-                    // { day: 'Saturday - Sunday', time: '8:00 AM - 4:00 PM' },
                 ]}
                 specialDeal="All Day Breakfast available!"
             />

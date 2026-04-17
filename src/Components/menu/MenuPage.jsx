@@ -1,54 +1,51 @@
 import React, { useState } from 'react';
 import CategorySection from './CategorySection';
-import HighlightedPhoto from './HighlightedPhoto';
 import CategoryNavigation from './CategoryNavigation';
+import PageHero from '../ui/PageHero';
 import { breakfastMenu, lunchMenu, kidsMenu, freshSaladsMenu, extrasMenu, sideMenu } from '../../assets/menuData';
 
+const categories = [
+    { id: 'breakfast', name: 'Breakfast', items: breakfastMenu },
+    { id: 'lunch', name: 'Lunch', items: lunchMenu },
+    { id: 'salads', name: 'Fresh Salads', items: freshSaladsMenu },
+    { id: 'kids', name: "Kids' Menu", items: kidsMenu },
+    { id: 'extras', name: 'Extras', items: extrasMenu },
+    { id: 'sides', name: 'Sides', items: sideMenu },
+];
+
 const MenuPage = () => {
-    const [filterText, setFilterText] = useState(''); // Filter state moved to pass as props
-    const categories = [
-        { id: 'breakfast', name: 'Breakfast Menu', items: breakfastMenu },
-        { id: 'lunch', name: 'Lunch Menu', items: lunchMenu },
-        { id: 'salads', name: 'Fresh Salads', items: freshSaladsMenu },
-        { id: 'kids', name: 'Kids\' Menu', items: kidsMenu },
-        { id: 'extras', name: 'Extras', items: extrasMenu },
-        { id: 'sides', name: 'Sides', items: sideMenu },
-    ];
+    const [filterText, setFilterText] = useState('');
 
     const filteredCategories = categories.map((category) => ({
         ...category,
         items: category.items
             .map((item) => {
-                // Filter subItems if they exist
                 if (item.subItems) {
                     const filteredSubItems = item.subItems.filter((subItem) =>
                         subItem.name.toLowerCase().includes(filterText.toLowerCase())
                     );
-
-                    // If subItems match the filter, include the parent item
                     if (filteredSubItems.length > 0) {
                         return { ...item, subItems: filteredSubItems };
                     }
                 }
-
-                // Check the main item name
                 if (item.name.toLowerCase().includes(filterText.toLowerCase())) {
                     return item;
                 }
-
-                // Exclude item if no match
                 return null;
             })
-            .filter((item) => item !== null), // Remove null items
+            .filter(Boolean),
     }));
 
     return (
         <div className="menu-page">
-            <HighlightedPhoto />
+            <PageHero
+                title="Our Menu"
+                subtitle="Fresh ingredients, prepared with care. All-day breakfast available."
+            />
             <CategoryNavigation
                 categories={categories}
                 filterText={filterText}
-                setFilterText={setFilterText} // Pass filterText state as props
+                setFilterText={setFilterText}
             />
             <div className="menu-categories">
                 {filteredCategories.map((category) => (

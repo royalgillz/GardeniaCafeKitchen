@@ -1,67 +1,67 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-// import logo from "../assets/gardeniacafelogo.png";
-// import logo from "../assets/cafekitchenlogo.jpg";
-import logo from "../assets/cafekitchenlogo.png";
-// import logo from "../assets/gardeniacafelogo3.png";
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/Apronlogo.png';
+
+const NAV_LINKS = [
+    { to: '/', label: 'Home' },
+    { to: '/about-us', label: 'About' },
+    { to: '/menu', label: 'Menu' },
+    { to: '/gallery', label: 'Gallery' },
+    { to: '/contact-us', label: 'Contact' },
+];
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { hash } = useLocation();
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
-    const closeMenu = () => {
-        setIsMenuOpen(false);
-    };
+    const currentPath = hash.replace('#', '') || '/';
+    const closeMenu = () => setIsMenuOpen(false);
 
     return (
         <header className="header">
             <div className="header-content">
-                {/* Logo */}
-                <div className="logo">
-                    <img src={logo} alt="Website Logo" />
-                </div>
+                <Link to="/" className="header-brand" onClick={closeMenu}>
+                    <img src={logo} alt="Gardenia CafeKitchen logo" className="header-logo" />
+                    <span className="header-title">Gardenia CafeKitchen</span>
+                </Link>
 
-                {/* Title */}
-                <div className="title-div">
-                    <Link to="">
-                        <h1 className="title">Gardenia CafeKitchen</h1>
-                    </Link>
-                </div>
-
-                {/* Navigation Links */}
-                <nav className={`nav-links ${isMenuOpen ? "open" : ""}`}>
-                    <div className="sidebar-logo">
-                        <img src={logo} alt="Website Logo" />
+                <nav className={`nav-links${isMenuOpen ? ' open' : ''}`} aria-label="Main navigation">
+                    <div className="sidebar-header">
+                        <img src={logo} alt="Gardenia CafeKitchen logo" className="sidebar-logo" />
+                        <button className="sidebar-close" onClick={closeMenu} aria-label="Close menu">
+                            &#x2715;
+                        </button>
                     </div>
                     <ul>
-                        <li>
-                            <Link to="" onClick={closeMenu}>Home</Link>
-                        </li>
-                        <li>
-                            <Link to="about-us" onClick={closeMenu}>About</Link>
-                        </li>
-                        <li>
-                            <Link to="menu" onClick={closeMenu}>Menu</Link>
-                        </li>
-                        <li>
-                            <Link to="contact-us" onClick={closeMenu}>Contact Us</Link>
-                        </li>
+                        {NAV_LINKS.map(({ to, label }) => (
+                            <li key={to}>
+                                <Link
+                                    to={to}
+                                    onClick={closeMenu}
+                                    className={currentPath === to ? 'nav-link active' : 'nav-link'}
+                                >
+                                    {label}
+                                </Link>
+                            </li>
+                        ))}
                     </ul>
                 </nav>
 
-                {/* Hamburger Menu */}
-                <div className="hamburger" onClick={toggleMenu}>
-                    <div className="line"></div>
-                    <div className="line"></div>
-                    <div className="line"></div>
-                </div>
+                <button
+                    className="hamburger"
+                    onClick={() => setIsMenuOpen(true)}
+                    aria-label="Open menu"
+                    aria-expanded={isMenuOpen}
+                >
+                    <span className="hamburger-line" />
+                    <span className="hamburger-line" />
+                    <span className="hamburger-line" />
+                </button>
             </div>
 
-            {/* Side Menu Overlay */}
-            {isMenuOpen && <div className="side-menu-overlay" onClick={closeMenu}></div>}
+            {isMenuOpen && (
+                <div className="side-menu-overlay" onClick={closeMenu} aria-hidden="true" />
+            )}
         </header>
     );
 };
