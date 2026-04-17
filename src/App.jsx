@@ -1,18 +1,8 @@
-import { useState } from 'react'
-import './App.css'
-import AppRoutes from './Components/AppRoutes'
-import ContactUsPage from './Components/contactus/ContactUs';
+import './App.css';
+import AppRoutes from './routes';
 
 function App() {
-
-  return (
-    <AppRoutes />
-
-    // <div>
-    //   <AppRoutes />
-    //   <ContactUsPage />
-    // </div>
-  );
+    return <AppRoutes />;
 }
 
-export default App
+export default App;
