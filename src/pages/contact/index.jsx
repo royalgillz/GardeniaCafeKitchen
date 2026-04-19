@@ -1,8 +1,14 @@
-import ContactInfo from './ContactInfo';
+import { FaPhone, FaMapMarkerAlt, FaClock, FaEnvelope, FaFacebook } from 'react-icons/fa';
 import Map from './Map';
 import ContactForm from './ContactForm';
 import PageHero from '../../Components/ui/PageHero';
-import { FaFacebook } from 'react-icons/fa';
+
+const INFO_CARDS = [
+    { icon: FaPhone, label: 'Call Us', value: '+61 8 9407 8749', href: 'tel:+61894078749' },
+    { icon: FaMapMarkerAlt, label: 'Find Us', value: 'Shop 12/1244 Marmion Ave\nCurrambine WA 6028', href: null },
+    { icon: FaClock, label: 'Hours', value: 'Mon \u2013 Sat\n8:00 AM \u2013 2:00 PM', href: null },
+    { icon: FaEnvelope, label: 'Email Us', value: 'info@gardeniacafe.kitchen', href: 'mailto:info@gardeniacafe.kitchen' },
+];
 
 const FAQ = [
     { q: 'Do I need to make a reservation?', a: 'No reservations needed. We are a walk-in cafe and welcome you anytime during our opening hours.' },
@@ -12,37 +18,47 @@ const FAQ = [
 ];
 
 const ContactPage = () => (
-    <div className="contact-us-page">
+    <div className="contact-page">
         <PageHero
             title="Get in Touch"
             subtitle="We would love to hear from you. Reach out with any questions or feedback."
         />
 
-        <div className="contact-body">
-            <div className="contact-left">
-                <ContactInfo
-                    address="Shop 12/1244 Marmion Ave, Currambine WA 6028, Australia"
-                    phone="+61 8 9407 8749"
-                    email="info@gardeniacafe.kitchen"
-                    hours="Mon - Sat: 8:00 AM - 2:00 PM"
-                />
-                <div className="contact-social">
-                    <h3>Follow Us</h3>
+        <div className="contact-info-band">
+            <div className="contact-info-cards">
+                {INFO_CARDS.map(({ icon: Icon, label, value, href }) => (
+                    <div key={label} className="contact-info-card">
+                        <div className="contact-info-card-icon"><Icon /></div>
+                        <p className="contact-info-card-label">{label}</p>
+                        {href ? (
+                            <a href={href} className="contact-info-card-value">{value}</a>
+                        ) : (
+                            <p className="contact-info-card-value">
+                                {value.split('\n').map((line, i) => <span key={i}>{line}{i < value.split('\n').length - 1 && <br />}</span>)}
+                            </p>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div className="contact-main">
+            <div className="contact-form-wrap">
+                <ContactForm />
+            </div>
+            <div className="contact-map-wrap">
+                <Map src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3393.092538488062!2d115.7390882!3d-31.740675000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2bcd55cc1864e6b5%3A0x79eff58dd96a2396!2sGardenia%20CafeKitchen!5e0!3m2!1sen!2sus!4v1732020936791!5m2!1sen!2sus" />
+                <div className="contact-follow">
+                    <p className="contact-follow-label">Follow Us</p>
                     <a
                         href="https://www.facebook.com/profile.php?id=100094037439165"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="contact-social-link"
-                        aria-label="Facebook"
+                        className="contact-fb-link"
                     >
                         <FaFacebook /> Facebook
                     </a>
                 </div>
-                <Map src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3393.092538488062!2d115.7390882!3d-31.740675000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2bcd55cc1864e6b5%3A0x79eff58dd96a2396!2sGardenia%20CafeKitchen!5e0!3m2!1sen!2sus!4v1732020936791!5m2!1sen!2sus" />
-            </div>
-
-            <div className="contact-right">
-                <ContactForm />
             </div>
         </div>
 

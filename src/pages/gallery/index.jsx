@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import PageHero from '../../Components/ui/PageHero';
+import SectionHeader from '../../Components/ui/SectionHeader';
 import Button from '../../Components/ui/Button';
 import pastaimage from '../../assets/gallery/pasta.jpg';
 import coffeeimage from '../../assets/gallery/coffee.jpg';
@@ -71,7 +72,7 @@ const GalleryPage = () => {
             </section>
 
             <section className="gallery-grid-section">
-                <h2 className="gallery-grid-title">Moments at the Cafe</h2>
+                <SectionHeader title="Moments at the Cafe" />
                 <div className="gallery-grid">
                     {GRID_PHOTOS.map((photo, i) => (
                         <button key={i} className="gallery-grid-item" onClick={() => setLightbox(i)} aria-label={`View ${photo.alt}`}>

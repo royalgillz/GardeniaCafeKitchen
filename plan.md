@@ -46,25 +46,32 @@ Live site: https://gardeniacafekitchen.netlify.app/
 
 ---
 
-## Phase 2.5 - Menu & Site-Wide Redesign (in progress)
+## Phase 2.5 - Menu & Site-Wide Redesign (COMPLETED)
 
 ### Menu Page (new layout inspired by app-style UI)
-- [ ] Sidebar category nav (sticky, 220px, shows item counts)
-- [ ] Category chip row (horizontal scroll, icon + label)
-- [ ] Popular dishes cards section (emoji placeholder, price, badge)
-- [ ] All-items compact row list for active category
-- [ ] Right info panel: cafe info + dietary filter tags
-- [ ] Mobile: sidebar becomes overlay drawer, info panel hidden
-- [ ] Topbar: sticky search bar with clear button
-- [ ] Remove old CategoryNav, CategorySection, SearchBar, MenuItem files
+- [x] Sidebar category nav (sticky, 220px, shows item counts)
+- [x] Category chip row (horizontal scroll, icon + label)
+- [x] Popular dishes cards section (emoji placeholder, price, badge)
+- [x] All-items compact row list for active category
+- [x] Right info panel: cafe info + dietary filter tags
+- [x] Mobile: sidebar becomes overlay drawer, info panel hidden
+- [x] Topbar: sticky search bar with clear button
+- [x] Remove old CategoryNav, CategorySection, SearchBar, MenuItem files
 
-### Global Style Refresh (to match new design language)
-- [ ] New design tokens: --surface, --surface-warm, --text-muted, --sage
-- [ ] Tighten radius tokens (sm: 8px, md: 14px, lg: 22px)
-- [ ] Cards site-wide: white bg + warm border + shadow
-- [ ] Section backgrounds: deliberate cream/surface-warm alternation
-- [ ] Feature icon circles: sage/green colour update
-- [ ] Header: subtle border refinement
+### Global Style Refresh
+- [x] New design tokens: --surface, --surface-warm, --text-muted, --sage
+- [x] Tighten radius tokens (sm: 8px, md: 14px, lg: 22px)
+- [x] Cards site-wide: white bg + warm border + shadow
+- [x] Section backgrounds: deliberate cream/surface-warm alternation
+- [x] Feature icon circles: sage/green colour update
+- [x] Header: subtle border refinement
+
+### Additional Redesigns (COMPLETED)
+- [x] Logo: rebuilt as inline SVG React component with 5-petal flower mark + Playfair Display wordmark, variant prop for light/dark backgrounds
+- [x] Footer: collapsed from 4-column grid to compact single horizontal strip (logo + nav links + contact info + social icon)
+- [x] Home page: replaced tall carousel with 3-column dish card grid; replaced dark Visit section with light two-card layout
+- [x] Contact page: redesigned with 4 icon info cards band + form/map two-column layout
+- [x] Gallery page: replaced dark brown gradient CTA with light surface-warm theme; grid section on cream background; SectionHeader for consistency
 
 ---
 
