@@ -63,6 +63,8 @@ export const freshSaladsMenu = [
     { name: 'Chicken Caesar Salad', description: 'Grilled bacon, grilled chicken, cos lettuce, red onion, poached egg, parmesan, cucumber, cherry tomato and caesar dressing sauce.', price: 17.0 },
     { name: 'Pulled Beef Salad', description: 'Garden salad, red onion, cherry tomato, cucumber, feta cheese, walnut, balsamic dressing.', price: 17.0 },
     { name: 'Beetroot, Feta and Walnut Salad', description: 'Garden salad, walnut, feta cheese, beetroot, red onion, cucumber, cherry tomato, balsamic dressing.', price: 17.0 },
+    { name: 'Smoked Salmon Salad', description: 'Smoked salmon, mixed leaves, capers, red onion, cucumber, cherry tomato, avocado and lemon dill dressing.', price: 18.0 },
+    { name: 'Halloumi and Roasted Vegetable Salad', description: 'Grilled halloumi, roasted capsicum, zucchini, red onion, cherry tomato, mixed leaves, pine nuts and a honey mustard dressing.', price: 17.0 },
 ];
 
 export const kidsMenu = [

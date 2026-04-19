@@ -1532,3 +1532,49 @@
 }
 .not-found h2 { font-size: 1.8rem; color: var(--brown); }
 .not-found p { color: #7a5c3a; max-width: 380px; line-height: 1.6; margin-bottom: 8px; }
+
+/* =========================================================
+   PAGE TRANSITION
+   ========================================================= */
+.page-wrapper {
+  animation: pageFadeIn 0.3s ease both;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   SCROLL TO TOP BUTTON
+   ========================================================= */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 500;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--dark-orange);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.2s ease;
+}
+.scroll-top-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.scroll-top-btn:hover { background-color: var(--brown); }
+@media (max-width: 600px) {
+  .scroll-top-btn { bottom: 20px; right: 20px; }
+}
