@@ -2,35 +2,47 @@
   --font-display: "Playfair Display", Georgia, serif;
   --font-body: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  --cream: #faf8f3;
-  --light-green: #ddf9c1;
-  --light-yellow: #f8dda4;
-  --orange: #f9a03f;
-  --dark-orange: #d45113;
-  --brown: #813405;
-  --text-dark: #2c1810;
-  --green: #7c8a70;
-  --sandy-brown: #f2b05a;
-  --border: rgba(130, 80, 20, 0.15);
+  /* Backgrounds */
+  --cream:         #faf8f3;
+  --surface:       #ffffff;
+  --surface-warm:  #f4efe6;
 
+  /* Brand palette */
+  --light-green:   #ddf9c1;
+  --light-yellow:  #fef3d0;
+  --orange:        #f9a03f;
+  --dark-orange:   #d45113;
+  --brown:         #813405;
+  --green:         #7c8a70;
+  --sage:          #a3b89a;
+  --sandy-brown:   #f2b05a;
+
+  /* Text */
+  --text-dark:     #2c1810;
+  --text-muted:    #8a7060;
+
+  /* Borders */
+  --border:        rgba(130, 80, 20, 0.13);
+  --border-strong: rgba(130, 80, 20, 0.22);
+
+  /* Shadows */
+  --shadow-xs: 0 1px 3px rgba(44, 24, 16, 0.06);
   --shadow-sm: 0 2px 8px rgba(44, 24, 16, 0.08);
-  --shadow-md: 0 4px 20px rgba(44, 24, 16, 0.12);
-  --shadow-lg: 0 8px 40px rgba(44, 24, 16, 0.16);
+  --shadow-md: 0 4px 20px rgba(44, 24, 16, 0.11);
+  --shadow-lg: 0 8px 40px rgba(44, 24, 16, 0.15);
 
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
 
-  --transition: 0.25s ease;
+  --transition: 0.22s ease;
 
   scroll-behavior: smooth;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
   font-family: var(--font-body);
@@ -53,21 +65,10 @@ a {
   color: var(--dark-orange);
   transition: color var(--transition);
 }
+a:hover { color: var(--brown); }
 
-a:hover {
-  color: var(--brown);
-}
+img { display: block; max-width: 100%; }
 
-img {
-  display: block;
-  max-width: 100%;
-}
+section { padding: 4rem 2rem; }
 
-section {
-  padding: 4rem 2rem;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
+ul { margin: 0; padding: 0; }

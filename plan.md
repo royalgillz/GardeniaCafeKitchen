@@ -20,8 +20,8 @@ Live site: https://gardeniacafekitchen.netlify.app/
 - [x] Fix favicon path for production
 
 ### Code Quality
-- [ ] Clean up unused component files: HighlightedPhoto, CallToAction, SocialMediaLinks, SocialMediaFeed, Slideshow, PhotoGrid
-- [ ] Clean up unused logo asset files in src/assets/
+- [x] Clean up unused component files: HighlightedPhoto, CallToAction, SocialMediaLinks, SocialMediaFeed, Slideshow, PhotoGrid
+- [x] Clean up unused logo asset files in src/assets/
 - [x] Implement Testimonials section on HomePage
 - [x] Implement TeamSection on AboutUsPage
 - [x] Add loading/success state to ContactForm
@@ -46,24 +46,46 @@ Live site: https://gardeniacafekitchen.netlify.app/
 
 ---
 
+## Phase 2.5 - Menu & Site-Wide Redesign (in progress)
+
+### Menu Page (new layout inspired by app-style UI)
+- [ ] Sidebar category nav (sticky, 220px, shows item counts)
+- [ ] Category chip row (horizontal scroll, icon + label)
+- [ ] Popular dishes cards section (emoji placeholder, price, badge)
+- [ ] All-items compact row list for active category
+- [ ] Right info panel: cafe info + dietary filter tags
+- [ ] Mobile: sidebar becomes overlay drawer, info panel hidden
+- [ ] Topbar: sticky search bar with clear button
+- [ ] Remove old CategoryNav, CategorySection, SearchBar, MenuItem files
+
+### Global Style Refresh (to match new design language)
+- [ ] New design tokens: --surface, --surface-warm, --text-muted, --sage
+- [ ] Tighten radius tokens (sm: 8px, md: 14px, lg: 22px)
+- [ ] Cards site-wide: white bg + warm border + shadow
+- [ ] Section backgrounds: deliberate cream/surface-warm alternation
+- [ ] Feature icon circles: sage/green colour update
+- [ ] Header: subtle border refinement
+
+---
+
 ## Phase 2 - Feature Completions (near-term)
 
 ### SEO & Accessibility
-- [ ] Add proper meta tags (description, og:image, og:title) in index.html
+- [x] Add proper meta tags (description, og:image, og:title, og:type, twitter card) in index.html
 - [ ] Add ARIA labels to nav, buttons, form inputs
 - [ ] Add alt text to all images
-- [ ] Create sitemap.xml
+- [x] Create sitemap.xml
 
 ### UI Improvements
-- [ ] Add Gallery page - more images and better layout
+- [x] Add Gallery page - more images and better layout
 - [ ] Add smooth scroll behavior for navigation links
-- [ ] Add active nav link highlighting based on current route
-- [ ] Add scroll-to-top floating button
-- [ ] Add page transition animations
+- [x] Add active nav link highlighting based on current route
+- [x] Add scroll-to-top floating button
+- [x] Add page transition animations (fade + slide up on route change)
 
 ### Content
 - [ ] Enable Instagram social links once account is active
-- [ ] Add more items to Fresh Salads menu (currently only 3 items)
+- [x] Add more items to Fresh Salads menu (Smoked Salmon, Halloumi and Roasted Vegetable)
 - [ ] Add real testimonials/reviews (at least 3-5)
 - [ ] Add team section with real staff info
 - [ ] Add more gallery photos

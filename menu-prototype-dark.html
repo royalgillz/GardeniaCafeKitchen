@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Menu – Dark UI Prototype</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #161618;
+  --surface:  #1f1f23;
+  --surface2: #2a2a30;
+  --surface3: #333340;
+  --border:   rgba(255,255,255,0.07);
+  --orange:   #f9a03f;
+  --red:      #d45113;
+  --green:    #7c8a70;
+  --text:     #f0ede8;
+  --muted:    #888897;
+  --font-d:   "Playfair Display", serif;
+  --font-b:   "Lato", sans-serif;
+}
+
+body {
+  font-family: var(--font-b);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0 16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+.sidebar-icon {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--red), var(--orange));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+.sidebar-brand-text { font-family: var(--font-d); font-size: 0.9rem; color: var(--text); line-height: 1.2; }
+.sidebar-brand-text span { display: block; font-size: 0.7rem; color: var(--muted); font-family: var(--font-b); }
+
+.sidebar-section-label {
+  font-size: 0.63rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  padding: 16px 20px 6px;
+}
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.18s;
+  border-radius: 0 8px 8px 0;
+  margin: 1px 8px 1px 0;
+}
+.sidebar-item:hover { color: var(--text); background: var(--surface2); }
+.sidebar-item.active { color: var(--orange); border-left-color: var(--orange); background: rgba(249,160,63,0.08); }
+.sidebar-item-icon { font-size: 1rem; width: 20px; text-align: center; }
+.sidebar-item-count {
+  margin-left: auto;
+  font-size: 0.68rem;
+  background: var(--surface3);
+  color: var(--muted);
+  border-radius: 10px;
+  padding: 2px 7px;
+  font-weight: 700;
+}
+.sidebar-item.active .sidebar-item-count { background: rgba(249,160,63,0.2); color: var(--orange); }
+
+/* ── MAIN ── */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 28px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.search-wrap {
+  flex: 1;
+  max-width: 480px;
+  position: relative;
+}
+.search-wrap input {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 16px 10px 42px;
+  font-size: 0.85rem;
+  color: var(--text);
+  outline: none;
+  font-family: var(--font-b);
+  transition: border-color 0.2s;
+}
+.search-wrap input::placeholder { color: var(--muted); }
+.search-wrap input:focus { border-color: rgba(249,160,63,0.4); }
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.topbar-pills {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+.topbar-pill {
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--muted);
+  transition: all 0.18s;
+}
+.topbar-pill.active { background: var(--red); color: #fff; border-color: var(--red); }
+.topbar-pill:hover:not(.active) { border-color: var(--orange); color: var(--orange); }
+
+/* ── CONTENT AREA ── */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 28px 40px;
+  display: flex;
+  gap: 24px;
+}
+
+/* ── LEFT CONTENT ── */
+.content-left { flex: 1; min-width: 0; }
+
+/* SECTION HEADER */
+.sec-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.sec-title {
+  font-family: var(--font-d);
+  font-size: 1.2rem;
+  color: var(--text);
+}
+.sec-link {
+  font-size: 0.78rem;
+  color: var(--orange);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+}
+.sec-sub { font-size: 0.78rem; color: var(--muted); margin-bottom: 16px; }
+.sec-sub strong { color: var(--orange); }
+
+/* CATEGORY CIRCLES */
+.cat-scroll {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+  margin-bottom: 36px;
+}
+.cat-scroll::-webkit-scrollbar { display: none; }
+.cat-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.cat-chip-circle {
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  background: var(--surface2);
+  border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.7rem;
+  transition: all 0.2s;
+  position: relative;
+}
+.cat-chip:hover .cat-chip-circle { border-color: var(--orange); background: rgba(249,160,63,0.1); }
+.cat-chip.active .cat-chip-circle {
+  border-color: var(--orange);
+  background: rgba(249,160,63,0.15);
+  box-shadow: 0 0 0 4px rgba(249,160,63,0.12);
+}
+.cat-chip-label { font-size: 0.72rem; font-weight: 700; color: var(--muted); text-align: center; white-space: nowrap; }
+.cat-chip.active .cat-chip-label { color: var(--orange); }
+
+/* POPULAR DISH CARDS */
+.popular-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+.dish-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  position: relative;
+}
+.dish-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  border-color: rgba(249,160,63,0.3);
+}
+.dish-card-img {
+  height: 110px;
+  background: var(--surface2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.dish-card-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.4));
+}
+.dish-card-popular {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: var(--red);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 6px;
+  z-index: 2;
+}
+.dish-card-body { padding: 12px 14px 14px; }
+.dish-card-name { font-family: var(--font-d); font-size: 0.92rem; color: var(--text); margin-bottom: 2px; }
+.dish-card-sub { font-size: 0.72rem; color: var(--muted); margin-bottom: 10px; line-height: 1.4; }
+.dish-card-footer { display: flex; justify-content: space-between; align-items: center; }
+.dish-price { font-size: 1rem; font-weight: 700; color: var(--orange); }
+.dish-rating { display: flex; align-items: center; gap: 4px; font-size: 0.72rem; color: var(--muted); }
+.dish-rating-star { color: #f9a03f; }
+
+/* ALL ITEMS LIST */
+.items-section { margin-bottom: 28px; }
+.items-section-title {
+  font-family: var(--font-d);
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.items-section-title-icon { font-size: 1.1rem; }
+.items-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.item-row {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: border-color 0.18s, background 0.18s;
+}
+.item-row:hover { border-color: rgba(249,160,63,0.25); background: var(--surface2); }
+.item-row-emoji { font-size: 1.5rem; flex-shrink: 0; }
+.item-row-info { flex: 1; min-width: 0; }
+.item-row-name { font-size: 0.85rem; font-weight: 700; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.item-row-desc { font-size: 0.72rem; color: var(--muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.item-row-price { font-weight: 700; font-size: 0.9rem; color: var(--orange); flex-shrink: 0; }
+
+/* ── RIGHT PANEL ── */
+.right-panel {
+  width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.panel-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Today's Specials */
+.specials-header {
+  padding: 16px 18px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.specials-title { font-family: var(--font-d); font-size: 0.95rem; color: var(--text); }
+.specials-sub { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+.special-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+}
+.special-item:last-child { border-bottom: none; }
+.special-emoji {
+  width: 40px; height: 40px;
+  background: var(--surface2);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+.special-info { flex: 1; }
+.special-name { font-size: 0.82rem; font-weight: 700; color: var(--text); }
+.special-desc { font-size: 0.7rem; color: var(--muted); margin-top: 1px; }
+.special-price { font-weight: 700; font-size: 0.88rem; color: var(--orange); }
+
+/* Cafe Info Card */
+.info-card { padding: 18px; }
+.info-card-title { font-family: var(--font-d); font-size: 0.9rem; color: var(--text); margin-bottom: 12px; }
+.info-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.info-row:last-child { margin-bottom: 0; }
+.info-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+.info-text { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
+.info-text strong { color: var(--text); }
+
+/* Dietary tags */
+.dietary-card { padding: 16px 18px; }
+.dietary-title { font-family: var(--font-d); font-size: 0.9rem; color: var(--text); margin-bottom: 12px; }
+.dietary-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.dietary-tag {
+  padding: 5px 11px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: var(--surface2);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.dietary-tag:hover { border-color: var(--orange); color: var(--orange); }
+.dietary-tag.active { background: rgba(124,138,112,0.25); border-color: var(--green); color: #a8c09a; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--surface3); border-radius: 10px; }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="sidebar-icon">🌿</div>
+    <div class="sidebar-brand-text">
+      Gardenia
+      <span>CafeKitchen</span>
+    </div>
+  </div>
+
+  <div class="sidebar-section-label">Menu</div>
+  <div class="sidebar-item active" onclick="setActive(this,'breakfast')">
+    <span class="sidebar-item-icon">🍳</span> Breakfast
+    <span class="sidebar-item-count">10</span>
+  </div>
+  <div class="sidebar-item" onclick="setActive(this,'lunch')">
+    <span class="sidebar-item-icon">🥗</span> Lunch
+    <span class="sidebar-item-count">7</span>
+  </div>
+  <div class="sidebar-item" onclick="setActive(this,'salads')">
+    <span class="sidebar-item-icon">🥬</span> Fresh Salads
+    <span class="sidebar-item-count">5</span>
+  </div>
+  <div class="sidebar-item" onclick="setActive(this,'kids')">
+    <span class="sidebar-item-icon">🌟</span> Kids' Menu
+    <span class="sidebar-item-count">4</span>
+  </div>
+  <div class="sidebar-item" onclick="setActive(this,'extras')">
+    <span class="sidebar-item-icon">➕</span> Extras
+    <span class="sidebar-item-count">5</span>
+  </div>
+  <div class="sidebar-item" onclick="setActive(this,'sides')">
+    <span class="sidebar-item-icon">🍟</span> Sides
+    <span class="sidebar-item-count">2</span>
+  </div>
+
+  <div class="sidebar-section-label" style="margin-top:auto">Navigate</div>
+  <div class="sidebar-item" onclick="window.location='/'">
+    <span class="sidebar-item-icon">🏠</span> Home
+  </div>
+  <div class="sidebar-item" onclick="">
+    <span class="sidebar-item-icon">📖</span> About
+  </div>
+  <div class="sidebar-item" onclick="">
+    <span class="sidebar-item-icon">📍</span> Contact
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Search our menu..." oninput="filterItems(this.value)" />
+    </div>
+    <div class="topbar-pills">
+      <div class="topbar-pill active">All Items</div>
+      <div class="topbar-pill" onclick="filterDietary('veg')">🌱 Veg</div>
+      <div class="topbar-pill" onclick="filterDietary('gf')">GF Friendly</div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <div class="content-left">
+
+      <!-- CATEGORY CIRCLES -->
+      <div class="sec-header">
+        <span class="sec-title">Categories</span>
+      </div>
+      <div class="sec-sub"><strong>6</strong> categories available</div>
+      <div class="cat-scroll">
+        <div class="cat-chip active" onclick="setCategory(this,'breakfast')">
+          <div class="cat-chip-circle">🍳</div>
+          <div class="cat-chip-label">Breakfast</div>
+        </div>
+        <div class="cat-chip" onclick="setCategory(this,'lunch')">
+          <div class="cat-chip-circle">🥗</div>
+          <div class="cat-chip-label">Lunch</div>
+        </div>
+        <div class="cat-chip" onclick="setCategory(this,'salads')">
+          <div class="cat-chip-circle">🥬</div>
+          <div class="cat-chip-label">Salads</div>
+        </div>
+        <div class="cat-chip" onclick="setCategory(this,'kids')">
+          <div class="cat-chip-circle">🌟</div>
+          <div class="cat-chip-label">Kids</div>
+        </div>
+        <div class="cat-chip" onclick="setCategory(this,'extras')">
+          <div class="cat-chip-circle">➕</div>
+          <div class="cat-chip-label">Extras</div>
+        </div>
+        <div class="cat-chip" onclick="setCategory(this,'sides')">
+          <div class="cat-chip-circle">🍟</div>
+          <div class="cat-chip-label">Sides</div>
+        </div>
+      </div>
+
+      <!-- POPULAR DISHES -->
+      <div class="sec-header">
+        <span class="sec-title">Popular Dishes</span>
+        <span class="sec-link">View All →</span>
+      </div>
+      <div class="sec-sub"><strong>Our most-loved plates</strong> from the kitchen</div>
+      <div class="popular-grid" id="popular-grid">
+        <div class="dish-card">
+          <div class="dish-card-img">🍳<div class="dish-card-popular">Popular</div></div>
+          <div class="dish-card-body">
+            <div class="dish-card-name">The Big Breakfast</div>
+            <div class="dish-card-sub">Eggs, bacon, sausage, hash brown, toast &amp; beans</div>
+            <div class="dish-card-footer">
+              <span class="dish-price">$24.00</span>
+              <span class="dish-rating"><span class="dish-rating-star">★</span> 4.9</span>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card">
+          <div class="dish-card-img">🥚<div class="dish-card-popular">Popular</div></div>
+          <div class="dish-card-body">
+            <div class="dish-card-name">Eggs Benedict</div>
+            <div class="dish-card-sub">Poached eggs on ciabatta with hollandaise</div>
+            <div class="dish-card-footer">
+              <span class="dish-price">$21.00</span>
+              <span class="dish-rating"><span class="dish-rating-star">★</span> 4.8</span>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card">
+          <div class="dish-card-img">🍅<div class="dish-card-popular">Popular</div></div>
+          <div class="dish-card-body">
+            <div class="dish-card-name">Bruschetta &amp; Egg</div>
+            <div class="dish-card-sub">Poached egg, tomato, basil on ciabatta</div>
+            <div class="dish-card-footer">
+              <span class="dish-price">$16.00</span>
+              <span class="dish-rating"><span class="dish-rating-star">★</span> 4.7</span>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card">
+          <div class="dish-card-img">🥑</div>
+          <div class="dish-card-body">
+            <div class="dish-card-name">Smashed Avo</div>
+            <div class="dish-card-sub">Avocado, feta, pumpkin seeds, pomegranate</div>
+            <div class="dish-card-footer">
+              <span class="dish-price">$20.00</span>
+              <span class="dish-rating"><span class="dish-rating-star">★</span> 4.6</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ALL ITEMS (scrollable category view) -->
+      <div id="all-items">
+
+        <!-- Breakfast -->
+        <div class="items-section" data-cat="breakfast">
+          <div class="items-section-title"><span class="items-section-title-icon">🍳</span> Breakfast</div>
+          <div class="items-grid">
+            <div class="item-row"><span class="item-row-emoji">🍳</span><div class="item-row-info"><div class="item-row-name">The Big Breakfast</div><div class="item-row-desc">Eggs, bacon, sausage, mushroom, toast, beans</div></div><span class="item-row-price">$24</span></div>
+            <div class="item-row"><span class="item-row-emoji">🥦</span><div class="item-row-info"><div class="item-row-name">Vegetarian Breakfast</div><div class="item-row-desc">Two eggs, asparagus, tomato, avocado, ciabatta</div></div><span class="item-row-price">$24</span></div>
+            <div class="item-row"><span class="item-row-emoji">🥑</span><div class="item-row-info"><div class="item-row-name">Smashed Avo on Sourdough</div><div class="item-row-desc">Poached eggs, feta, pumpkin seeds, pomegranate</div></div><span class="item-row-price">$20</span></div>
+            <div class="item-row"><span class="item-row-emoji">🥚</span><div class="item-row-info"><div class="item-row-name">Eggs Benedict</div><div class="item-row-desc">Poached eggs on ciabatta — bacon, ham or salmon</div></div><span class="item-row-price">$21</span></div>
+            <div class="item-row"><span class="item-row-emoji">🍳</span><div class="item-row-info"><div class="item-row-name">Eggs on Toast</div><div class="item-row-desc">Scrambled, fried or poached on ciabatta</div></div><span class="item-row-price">$13.50</span></div>
+            <div class="item-row"><span class="item-row-emoji">🥞</span><div class="item-row-info"><div class="item-row-name">Pancakes</div><div class="item-row-desc">Seasonal fruit, maple syrup and ice cream</div></div><span class="item-row-price">$13</span></div>
+            <div class="item-row"><span class="item-row-emoji">🍞</span><div class="item-row-info"><div class="item-row-name">Toast or Croissant</div><div class="item-row-desc">With butter, honey or jam</div></div><span class="item-row-price">$7</span></div>
+            <div class="item-row"><span class="item-row-emoji">🥚</span><div class="item-row-info"><div class="item-row-name">Eggs Florentine</div><div class="item-row-desc">Poached eggs, spinach, avocado, hollandaise</div></div><span class="item-row-price">$19</span></div>
+          </div>
+        </div>
+
+        <!-- Lunch -->
+        <div class="items-section" data-cat="lunch">
+          <div class="items-section-title"><span class="items-section-title-icon">🥗</span> Lunch</div>
+          <div class="items-grid">
+            <div class="item-row"><span class="item-row-emoji">🍅</span><div class="item-row-info"><div class="item-row-name">Bruschetta with Poached Egg</div><div class="item-row-desc">Tomato, basil, onion, dressing on ciabatta</div></div><span class="item-row-price">$16</span></div>
+            <div class="item-row"><span class="item-row-emoji">🍔</span><div class="item-row-info"><div class="item-row-name">Beef Burger and Chips</div><div class="item-row-desc">Beef patty, garden salad, cheese, thousand-island</div></div><span class="item-row-price">$18</span></div>
+            <div class="item-row"><span class="item-row-emoji">🍗</span><div class="item-row-info"><div class="item-row-name">Chicken Burger and Chips</div><div class="item-row-desc">Southern fried chicken, salad, caesar dressing</div></div><span class="item-row-price">$18</span></div>
+            <div class="item-row"><span class="item-row-emoji">🥩</span><div class="item-row-info"><div class="item-row-name">Steak Sandwich and Chips</div><div class="item-row-desc">Beef steak, caramelised onion, tomato relish</div></div><span class="item-row-price">$20</span></div>
+            <div class="item-row"><span class="item-row-emoji">🐟</span><div class="item-row-info"><div class="item-row-name">Beer Battered Whiting and Chips</div><div class="item-row-desc">Garden salad and tartare sauce</div></div><span class="item-row-price">$19</span></div>
+            <div class="item-row"><span class="item-row-emoji">🦐</span><div class="item-row-info"><div class="item-row-name">Seafood Basket and Chips</div><div class="item-row-desc">Fish, prawns, squid, garden salad, tartare</div></div><span class="item-row-price">$19</span></div>
+          </div>
+        </div>
+
+        <!-- Salads -->
+        <div class="items-section" data-cat="salads">
+          <div class="items-section-title"><span class="items-section-title-icon">🥬</span> Fresh Salads</div>
+          <div class="items-grid">
+            <div class="item-row"><span class="item-row-emoji">🥗</span><div class="item-row-info"><div class="item-row-name">Chicken Caesar Salad</div><div class="item-row-desc">Grilled chicken, bacon, cos lettuce, parmesan</div></div><span class="item-row-price">$17</span></div>
+            <div class="item-row"><span class="item-row-emoji">🥩</span><div class="item-row-info"><div class="item-row-name">Pulled Beef Salad</div><div class="item-row-desc">Feta, walnut, cherry tomato, balsamic dressing</div></div><span class="item-row-price">$17</span></div>
+            <div class="item-row"><span class="item-row-emoji">🫐</span><div class="item-row-info"><div class="item-row-name">Beetroot, Feta and Walnut</div><div class="item-row-desc">Garden salad, beetroot, red onion, balsamic</div></div><span class="item-row-price">$17</span></div>
+            <div class="item-row"><span class="item-row-emoji">🐟</span><div class="item-row-info"><div class="item-row-name">Smoked Salmon Salad</div><div class="item-row-desc">Salmon, capers, avocado, lemon dill dressing</div></div><span class="item-row-price">$18</span></div>
+            <div class="item-row"><span class="item-row-emoji">🧀</span><div class="item-row-info"><div class="item-row-name">Halloumi and Roasted Veg</div><div class="item-row-desc">Grilled halloumi, capsicum, zucchini, pine nuts</div></div><span class="item-row-price">$17</span></div>
+          </div>
+        </div>
+
+        <!-- Kids -->
+        <div class="items-section" data-cat="kids">
+          <div class="items-section-title"><span class="items-section-title-icon">🌟</span> Kids' Menu</div>
+          <div class="items-grid">
+            <div class="item-row"><span class="item-row-emoji">🍳</span><div class="item-row-info"><div class="item-row-name">Kids Brekky</div><div class="item-row-desc">Eggs, hash brown, sausage, baked beans</div></div><span class="item-row-price">$10</span></div>
+            <div class="item-row"><span class="item-row-emoji">🥞</span><div class="item-row-info"><div class="item-row-name">Kids Pancakes</div><div class="item-row-desc">Two pancakes, syrup, ice cream, seasonal fruit</div></div><span class="item-row-price">$8</span></div>
+            <div class="item-row"><span class="item-row-emoji">🍗</span><div class="item-row-info"><div class="item-row-name">Chicken Nuggets</div><div class="item-row-desc">Six nuggets with tomato sauce</div></div><span class="item-row-price">$12</span></div>
+            <div class="item-row"><span class="item-row-emoji">🐟</span><div class="item-row-info"><div class="item-row-name">Kids Fish and Chips</div><div class="item-row-desc">Fish and chips with tomato sauce</div></div><span class="item-row-price">$12</span></div>
+          </div>
+        </div>
+
+        <!-- Extras + Sides -->
+        <div class="items-section" data-cat="extras">
+          <div class="items-section-title"><span class="items-section-title-icon">➕</span> Extras</div>
+          <div class="items-grid">
+            <div class="item-row"><span class="item-row-emoji">🥑</span><div class="item-row-info"><div class="item-row-name">Avocado</div></div><span class="item-row-price">$4</span></div>
+            <div class="item-row"><span class="item-row-emoji">🥓</span><div class="item-row-info"><div class="item-row-name">Bacon</div></div><span class="item-row-price">$4</span></div>
+            <div class="item-row"><span class="item-row-emoji">🐟</span><div class="item-row-info"><div class="item-row-name">Smoked Salmon</div></div><span class="item-row-price">$5</span></div>
+            <div class="item-row"><span class="item-row-emoji">🥚</span><div class="item-row-info"><div class="item-row-name">Egg</div></div><span class="item-row-price">$3</span></div>
+            <div class="item-row"><span class="item-row-emoji">🟨</span><div class="item-row-info"><div class="item-row-name">Hash Browns</div></div><span class="item-row-price">$3</span></div>
+          </div>
+        </div>
+
+        <div class="items-section" data-cat="sides">
+          <div class="items-section-title"><span class="items-section-title-icon">🍟</span> Sides</div>
+          <div class="items-grid">
+            <div class="item-row"><span class="item-row-emoji">🍟</span><div class="item-row-info"><div class="item-row-name">Chips with Tomato Sauce</div></div><span class="item-row-price">$7</span></div>
+            <div class="item-row"><span class="item-row-emoji">🥔</span><div class="item-row-info"><div class="item-row-name">Seasoned Wedges</div><div class="item-row-desc">Sweet chilli and sour cream sauce</div></div><span class="item-row-price">$9</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+      <!-- Today's Specials -->
+      <div class="panel-card">
+        <div class="specials-header">
+          <div class="specials-title">Today's Specials</div>
+          <div class="specials-sub">Freshly prepared every morning</div>
+        </div>
+        <div class="special-item">
+          <div class="special-emoji">🍳</div>
+          <div class="special-info">
+            <div class="special-name">Big Breakfast</div>
+            <div class="special-desc">With freshly squeezed OJ</div>
+          </div>
+          <span class="special-price">$24</span>
+        </div>
+        <div class="special-item">
+          <div class="special-emoji">☕</div>
+          <div class="special-info">
+            <div class="special-name">Coffee + Toast</div>
+            <div class="special-desc">Any coffee with toast deal</div>
+          </div>
+          <span class="special-price">$12</span>
+        </div>
+        <div class="special-item">
+          <div class="special-emoji">🥗</div>
+          <div class="special-info">
+            <div class="special-name">Chicken Caesar</div>
+            <div class="special-desc">Served with ciabatta</div>
+          </div>
+          <span class="special-price">$17</span>
+        </div>
+      </div>
+
+      <!-- Cafe Info -->
+      <div class="panel-card">
+        <div class="info-card">
+          <div class="info-card-title">Cafe Info</div>
+          <div class="info-row">
+            <span class="info-icon">📍</span>
+            <div class="info-text"><strong>Shop 12/1244 Marmion Ave</strong><br/>Currambine WA 6028</div>
+          </div>
+          <div class="info-row">
+            <span class="info-icon">🕐</span>
+            <div class="info-text"><strong>Mon – Sat</strong>: 8:00 AM – 2:00 PM<br/>Closed Sundays</div>
+          </div>
+          <div class="info-row">
+            <span class="info-icon">📞</span>
+            <div class="info-text">+61 8 9407 8749</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dietary Filters -->
+      <div class="panel-card">
+        <div class="dietary-card">
+          <div class="dietary-title">Dietary Needs</div>
+          <div class="dietary-tags">
+            <span class="dietary-tag" onclick="this.classList.toggle('active')">🌱 Vegetarian</span>
+            <span class="dietary-tag" onclick="this.classList.toggle('active')">🌿 Vegan</span>
+            <span class="dietary-tag" onclick="this.classList.toggle('active')">GF Friendly</span>
+            <span class="dietary-tag" onclick="this.classList.toggle('active')">🐟 Seafood</span>
+            <span class="dietary-tag" onclick="this.classList.toggle('active')">🥩 Meat</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function setActive(el, cat) {
+    document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+    el.classList.add('active');
+    scrollToCategory(cat);
+    highlightCatChip(cat);
+  }
+
+  function setCategory(chip, cat) {
+    document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    scrollToCategory(cat);
+    document.querySelectorAll('.sidebar-item').forEach(i => {
+      if (i.textContent.trim().toLowerCase().startsWith(cat === 'salads' ? 'fresh' : cat)) i.classList.add('active');
+      else i.classList.remove('active');
+    });
+  }
+
+  function scrollToCategory(cat) {
+    const el = document.querySelector(`.items-section[data-cat="${cat}"]`);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function highlightCatChip(cat) {
+    document.querySelectorAll('.cat-chip').forEach(c => {
+      const label = c.querySelector('.cat-chip-label').textContent.toLowerCase();
+      if (label === cat || (cat === 'salads' && label === 'salads')) c.classList.add('active');
+      else c.classList.remove('active');
+    });
+  }
+
+  function filterItems(q) {
+    const lower = q.toLowerCase();
+    document.querySelectorAll('.item-row').forEach(row => {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(lower) ? '' : 'none';
+    });
+  }
+</script>
+</body>
+</html>
