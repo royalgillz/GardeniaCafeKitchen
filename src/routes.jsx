@@ -1,4 +1,3 @@
-import React from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import ScrollToTop from './Components/layout/ScrollToTop';
 import Header from './Components/layout/Header';

@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Map = ({ src }) => (
     <div className="google-map">

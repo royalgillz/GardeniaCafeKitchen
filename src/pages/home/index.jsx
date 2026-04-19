@@ -1,4 +1,3 @@
-import React from 'react';
 import Hero from './Hero';
 import Features from './Features';
 import FeaturedDishes from './FeaturedDishes';

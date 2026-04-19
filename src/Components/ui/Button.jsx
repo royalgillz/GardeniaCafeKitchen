@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Button = ({ children, to, href, variant = 'primary', size = 'md', onClick, disabled, type = 'button', className = '' }) => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import Story from './Story';
 import Values from './Values';
 import Team from './Team';

@@ -1,4 +1,3 @@
-import React from 'react';
 
 const ContactInfo = ({ address, phone, email, hours }) => {
     return (

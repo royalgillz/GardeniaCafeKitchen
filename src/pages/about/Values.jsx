@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaRecycle, FaUsers, FaAppleAlt, FaHandsHelping } from 'react-icons/fa';
 import SectionHeader from '../../Components/ui/SectionHeader';
 

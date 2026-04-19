@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaClock } from 'react-icons/fa';
 import Button from '../../Components/ui/Button';
 

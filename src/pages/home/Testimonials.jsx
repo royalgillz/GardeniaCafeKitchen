@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaStar, FaStarHalfAlt, FaRegStar, FaQuoteLeft } from 'react-icons/fa';
 import SectionHeader from '../../Components/ui/SectionHeader';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import SectionHeader from '../../Components/ui/SectionHeader';
 import Button from '../../Components/ui/Button';
 

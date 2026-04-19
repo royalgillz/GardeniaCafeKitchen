@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaLeaf, FaSeedling, FaCoffee, FaSun, FaHeart } from 'react-icons/fa';
 import SectionHeader from '../../Components/ui/SectionHeader';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaPhone, FaMapMarkerAlt, FaClock, FaEnvelope } from 'react-icons/fa';
 

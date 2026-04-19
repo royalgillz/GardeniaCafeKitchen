@@ -1,4 +1,3 @@
-import React from 'react';
 
 const StatsStrip = ({ stats, variant = 'light' }) => {
     return (
