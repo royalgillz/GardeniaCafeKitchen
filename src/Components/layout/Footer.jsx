@@ -9,77 +9,78 @@ const QUICK_LINKS = [
     { to: '/contact-us', label: 'Contact' },
 ];
 
-const Footer = () => {
-    return (
-        <footer className="footer">
-            <div className="footer-container">
-                <div className="footer-section">
-                    <h2 className="footer-heading">Gardenia CafeKitchen</h2>
-                    <p className="footer-tagline">Freshness in Every Bite</p>
-                    <ul className="footer-info-list">
-                        <li>
-                            <FaClock className="footer-icon" />
-                            <span>Mon - Sat: 8:00 AM - 2:00 PM</span>
-                        </li>
-                        <li>
-                            <FaPhone className="footer-icon" />
-                            <a href="tel:+61894078749">+61 8 9407 8749</a>
-                        </li>
-                        <li>
-                            <FaEnvelope className="footer-icon" />
-                            <a href="mailto:info@gardeniacafe.kitchen">info@gardeniacafe.kitchen</a>
-                        </li>
-                        <li>
-                            <FaMapMarkerAlt className="footer-icon" />
-                            <a
-                                href="https://www.google.com/maps/place/Gardenia+CafeKitchen"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Shop 12/1244 Marmion Ave, Currambine WA 6028
-                            </a>
-                        </li>
-                    </ul>
+const Footer = () => (
+    <footer className="footer">
+        <div className="footer-inner">
+            {/* Brand column */}
+            <div className="footer-brand">
+                <h2 className="footer-name">Gardenia CafeKitchen</h2>
+                <p className="footer-tagline">Freshness in Every Bite</p>
+                <p className="footer-about">
+                    A warm neighbourhood cafe in Currambine, WA. Fresh food, great coffee, and a welcoming community table.
+                </p>
+                <div className="footer-socials">
+                    <a
+                        href="https://www.facebook.com/profile.php?id=100094037439165"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="footer-social-btn"
+                        aria-label="Facebook"
+                    >
+                        <FaFacebook />
+                    </a>
                 </div>
+            </div>
 
-                <div className="footer-section">
-                    <h3 className="footer-subheading">Quick Links</h3>
-                    <ul className="footer-links">
-                        {QUICK_LINKS.map(({ to, label }) => (
-                            <li key={to}>
-                                <Link to={to} className="footer-link">{label}</Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-                <div className="footer-section">
-                    <h3 className="footer-subheading">Follow Us</h3>
-                    <p className="footer-social-text">Stay connected for updates, specials, and more.</p>
-                    <div className="footer-socials">
-                        <a
-                            href="https://www.facebook.com/profile.php?id=100094037439165"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="footer-social-link"
-                            aria-label="Facebook"
-                        >
-                            <FaFacebook />
+            {/* Contact column */}
+            <div className="footer-col">
+                <h3 className="footer-col-heading">Contact</h3>
+                <ul className="footer-col-list">
+                    <li>
+                        <FaMapMarkerAlt />
+                        <a href="https://www.google.com/maps/place/Gardenia+CafeKitchen" target="_blank" rel="noopener noreferrer">
+                            Shop 12/1244 Marmion Ave<br />Currambine WA 6028
                         </a>
-                    </div>
-                </div>
+                    </li>
+                    <li>
+                        <FaPhone />
+                        <a href="tel:+61894078749">+61 8 9407 8749</a>
+                    </li>
+                    <li>
+                        <FaEnvelope />
+                        <a href="mailto:info@gardeniacafe.kitchen">info@gardeniacafe.kitchen</a>
+                    </li>
+                </ul>
             </div>
 
-            <div className="footer-bottom">
-                <p className="footer-bottom-text">
-                    &copy; {new Date().getFullYear()} Gardenia CafeKitchen. All Rights Reserved.
-                </p>
-                <p className="footer-bottom-text">
-                    Designed by <a href="https://www.linkedin.com/in/sehaj-gill" target="_blank" rel="noopener noreferrer">Sehaj Gill</a>
-                </p>
+            {/* Links column */}
+            <div className="footer-col">
+                <h3 className="footer-col-heading">Explore</h3>
+                <ul className="footer-col-list footer-col-list--links">
+                    {QUICK_LINKS.map(({ to, label }) => (
+                        <li key={to}>
+                            <Link to={to}>{label}</Link>
+                        </li>
+                    ))}
+                </ul>
             </div>
-        </footer>
-    );
-};
+
+            {/* Hours column */}
+            <div className="footer-col">
+                <h3 className="footer-col-heading">Hours</h3>
+                <ul className="footer-col-list">
+                    <li><FaClock /><span>Mon – Sat</span></li>
+                    <li className="footer-hours-time">8:00 AM – 2:00 PM</li>
+                    <li className="footer-hours-closed">Closed Sundays</li>
+                </ul>
+            </div>
+        </div>
+
+        <div className="footer-bar">
+            <p>&copy; {new Date().getFullYear()} Gardenia CafeKitchen. All rights reserved.</p>
+            <p>Designed by <a href="https://www.linkedin.com/in/sehaj-gill" target="_blank" rel="noopener noreferrer">Sehaj Gill</a></p>
+        </div>
+    </footer>
+);
 
 export default Footer;

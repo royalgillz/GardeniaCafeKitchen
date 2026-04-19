@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../../assets/Apronlogo.png';
+import Logo from '../ui/Logo';
 
 const NAV_LINKS = [
     { to: '/', label: 'Home' },
@@ -20,14 +20,13 @@ const Header = () => {
     return (
         <header className="header">
             <div className="header-content">
-                <Link to="/" className="header-brand" onClick={closeMenu}>
-                    <img src={logo} alt="Gardenia CafeKitchen logo" className="header-logo" />
-                    <span className="header-title">Gardenia CafeKitchen</span>
+                <Link to="/" className="header-brand" onClick={closeMenu} aria-label="Gardenia CafeKitchen – Home">
+                    <Logo className="header-logo" variant="light" />
                 </Link>
 
                 <nav className={`nav-links${isMenuOpen ? ' open' : ''}`} aria-label="Main navigation">
                     <div className="sidebar-header">
-                        <img src={logo} alt="Gardenia CafeKitchen logo" className="sidebar-logo" />
+                        <Logo className="sidebar-logo" variant="default" />
                         <button className="sidebar-close" onClick={closeMenu} aria-label="Close menu">
                             &#x2715;
                         </button>
